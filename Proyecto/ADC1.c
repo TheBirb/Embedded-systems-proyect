@@ -7,13 +7,15 @@
  */
 
 #include <p24HJ256GP610A.h>
+#include "commons.h"
 #include "ADC1.h"
 
-
-float poten=0;
-unsigned int valor = 0;
 unsigned int n_muestras=0;
 unsigned int muestras_poten[8];
+unsigned int muestras_temp[8];
+unsigned int muestras_j_x[8];
+unsigned int muestras_j_y[8];
+unsigned int muestras_j_z[8];
 unsigned int flag_media=0;
 
 void inic_ADC1 (void)
@@ -57,7 +59,7 @@ AD1CHS123=0;	//seleccion del canal 1,2 eta 3
 
 // Inicializacion registro AD1CHS0
 AD1CHS0=0;
-AD1CHS0bits.CH0SA=5; // elige la entrada analogica conectada
+AD1CHS0bits.CH0SA=4; // elige la entrada analogica conectada
 
 //AD1CHS0bits.CH0SB = 0;
 
@@ -74,6 +76,9 @@ AD1PCFGL = 0xFFFF;      // Puerto B, todos digitales
 // Inicializar como analogicas solo las que vayamos a usar
 AD1PCFGLbits.PCFG5=0;   // potenciometro
 AD1PCFGLbits.PCFG4=0;   // sensor temperatura
+AD1PCFGLbits.PCFG0=0;   // Joystic eje X (Tiene la entrada an. 0, pin RB0)
+AD1PCFGLbits.PCFG1=0;   // Joystic eje Y (Tiene la entrada an. 1, pin RB1)
+AD1PCFGLbits.PCFG3=0;   // Joystic eje Z (palanca) (Tiene la entrada an. 3, pin RB3)
 
 // Bits y campos relacionados con las interrupciones
 IFS0bits.AD1IF=0;    
@@ -94,15 +99,35 @@ void comienzo_muestreo ()
 void _ISR_NO_PSV _ADC1Interrupt(){
     
     if(flag_media==0){
-        if (n_muestras!=7){
-            poten = ADC1BUF0;       //Cogemos el valor de la muestra del potenciometro
-            muestras_poten[n_muestras]=poten;
-            n_muestras++;      //Aumentamos las muestras por cada interrupción del conversor
-        }else{ 
-            muestras_poten[n_muestras]=poten;
-            n_muestras=0;
-            flag_media=1;
-        }       
+        
+        switch (AD1CHS0bits.CH0SA) {
+            case 0 :
+                unsigned int muestras_j_x[8]=ADC1BUF0;
+                AD1CHS0bits.CH0SA=1; 
+                break;
+            case 1 :
+                unsigned int muestras_j_y[8]=ADC1BUF0;
+                AD1CHS0bits.CH0SA=3; 
+                break;
+            case 3 :
+                unsigned int muestras_j_z[8]=ADC1BUF0;
+                AD1CHS0bits.CH0SA=4; 
+                break;
+            case 4 :
+                muestras_temp[n_muestras]=ADC1BUF0;
+                AD1CHS0bits.CH0SA=5;    //Cambiamos al muestreo del potenciometro
+                break;
+            case 5:
+                muestras_poten[n_muestras]=ADC1BUF0;
+                if (n_muestras!=7){   
+                    n_muestras++;      //Aumentamos las muestras por cada interrupción del conversor
+                }else{
+                    n_muestras=0;
+                    flag_media=1;
+                }
+                AD1CHS0bits.CH0SA=0;
+                break;
+        }
     }
     IFS0bits.AD1IF=0;           //Bajamos el flag de la interrupción
 }
