@@ -10,11 +10,13 @@
 #include "commons.h"
 #include "timers.h"
 #include "utilidades.h"
+#include "memoria.h"
+#include "LCD.h"
 
 unsigned int flag_T9=0;
 unsigned int flag_crono=0;
 unsigned int estado_LCD=0;
-usigned int L5=0;
+unsigned int L5=0;
 ////////////////////
 //Inicializaciones
 ////////////////////
@@ -127,8 +129,7 @@ void reinic_crono(unsigned int *mili,unsigned int *deci,
     
 }
 
-void cronometro(unsigned int *mili,unsigned int *deci,
-                unsigned int *seg,unsigned int *min)	// control del tiempo mediante el temporizador 7
+void cronometro(unsigned int *mili,unsigned int *deci,unsigned int *seg,unsigned int *min)	// control del tiempo mediante el temporizador 7
 {   
     unsigned char tiempo[2];
     //LCD
@@ -185,7 +186,7 @@ void _ISR_NO_PSV _T5Interrupt(){
             estado_LCD++;
             break;
         case 1:             //en el estado 1 vamos recorriendo todos los caracteres de la linea 0 por cada interrupcion 
-            lcd_data(Ventana_LCD[0][L5]);
+            lcd_data(LCD_Pantalla[0][L5]);
             L5++;
             if (L5==16){
                 L5=0;
@@ -197,7 +198,7 @@ void _ISR_NO_PSV _T5Interrupt(){
             estado_LCD++;
             break;
         case 3:             //en el estado 3 vamos recorriendo todos los caracteres de la linea 1 por cada interrupcion
-            lcd_data(Ventana_LCD[1][L5]);
+            lcd_data(LCD_Pantalla[1][L5]);
             L5++;
             if (L5==16){
                 L5=0;

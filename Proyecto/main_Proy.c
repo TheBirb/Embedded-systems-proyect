@@ -5,7 +5,7 @@
  * Created on April 28, 2022, 9:52 AM
  */
 
-
+#include "p24HJ256GP610A.h"
 #include "commons.h"
 #include "LCD.h"
 #include "memoria.h"

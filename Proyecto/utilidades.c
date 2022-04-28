@@ -4,7 +4,7 @@ Egileak eta data!!!
 */
 
 #include "p24HJ256GP610A.h"
-#include "ADC1.h"
+//#include "ADC1.h"
 
 // Funcion para obtener los caracteres de un valor de dos digitos (<100)
 // Parametros:
@@ -77,6 +77,7 @@ unsigned int calcular_distancia(unsigned char *vec){
 }
 
 //Función para calcular media de las muestras del potenciometro
+/*
 unsigned int calcular_media(){
     int i;
     unsigned int media=0, resultado=0;
@@ -87,4 +88,4 @@ unsigned int calcular_media(){
     
     resultado = media/8;
     return resultado;
-}
+}*/

@@ -14,8 +14,7 @@ void inic_Timer7();
 void Delay_us(int time);
 void Delay_ms(int time);
 
-int cronometro(unsigned int *mili,unsigned int *deci,
-                unsigned int *seg,unsigned int *min);
+void cronometro(unsigned int *mili,unsigned int *deci,unsigned int *seg,unsigned int *min);
 void inic_crono(unsigned int *mili,unsigned int *deci,
                 unsigned int *seg,unsigned int *min);
 void reinic_crono(unsigned int *mili,unsigned int *deci,
