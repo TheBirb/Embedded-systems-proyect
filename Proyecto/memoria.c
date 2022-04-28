@@ -8,7 +8,7 @@
 
 #include "p24HJ256GP610A.h"
 
-unsigned char LCD_Pantalla[16][17] = {
+unsigned char LCD_Pantalla[16][18] = {
     //0123456789ABCDEF
     ("- DSE 2021-22 --""\x0D\x0A"),
     ("Tiempo: --:--:--""\x0D\x0A"),

@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../oscilator.c ../timers.c ../UART2_RS232.c
+SOURCEFILES_QUOTED_IF_SPACED=../oscilator.c ../timers.c ../UART2_RS232.c ../LCD.c ../utilidades.c ../memoria.c ../main_Proy.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/oscilator.o ${OBJECTDIR}/_ext/1472/timers.o ${OBJECTDIR}/_ext/1472/UART2_RS232.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/oscilator.o.d ${OBJECTDIR}/_ext/1472/timers.o.d ${OBJECTDIR}/_ext/1472/UART2_RS232.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/oscilator.o ${OBJECTDIR}/_ext/1472/timers.o ${OBJECTDIR}/_ext/1472/UART2_RS232.o ${OBJECTDIR}/_ext/1472/LCD.o ${OBJECTDIR}/_ext/1472/utilidades.o ${OBJECTDIR}/_ext/1472/memoria.o ${OBJECTDIR}/_ext/1472/main_Proy.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/oscilator.o.d ${OBJECTDIR}/_ext/1472/timers.o.d ${OBJECTDIR}/_ext/1472/UART2_RS232.o.d ${OBJECTDIR}/_ext/1472/LCD.o.d ${OBJECTDIR}/_ext/1472/utilidades.o.d ${OBJECTDIR}/_ext/1472/memoria.o.d ${OBJECTDIR}/_ext/1472/main_Proy.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1472/oscilator.o ${OBJECTDIR}/_ext/1472/timers.o ${OBJECTDIR}/_ext/1472/UART2_RS232.o
+OBJECTFILES=${OBJECTDIR}/_ext/1472/oscilator.o ${OBJECTDIR}/_ext/1472/timers.o ${OBJECTDIR}/_ext/1472/UART2_RS232.o ${OBJECTDIR}/_ext/1472/LCD.o ${OBJECTDIR}/_ext/1472/utilidades.o ${OBJECTDIR}/_ext/1472/memoria.o ${OBJECTDIR}/_ext/1472/main_Proy.o
 
 # Source Files
-SOURCEFILES=../oscilator.c ../timers.c ../UART2_RS232.c
+SOURCEFILES=../oscilator.c ../timers.c ../UART2_RS232.c ../LCD.c ../utilidades.c ../memoria.c ../main_Proy.c
 
 
 
@@ -113,6 +113,30 @@ ${OBJECTDIR}/_ext/1472/UART2_RS232.o: ../UART2_RS232.c  .generated_files/flags/d
 	@${RM} ${OBJECTDIR}/_ext/1472/UART2_RS232.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../UART2_RS232.c  -o ${OBJECTDIR}/_ext/1472/UART2_RS232.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1472/UART2_RS232.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -I"../../../../Applications/microchip/xc16/v1.61/support/PIC24H/h" -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
+${OBJECTDIR}/_ext/1472/LCD.o: ../LCD.c  .generated_files/flags/default/ca11b155f2cfbd710fc2e77eeb0407bc67c8ea44 .generated_files/flags/default/d5824b4ff755718293ec9fe1ef749f9e9908baab
+	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
+	@${RM} ${OBJECTDIR}/_ext/1472/LCD.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/LCD.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../LCD.c  -o ${OBJECTDIR}/_ext/1472/LCD.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1472/LCD.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -I"../../../../Applications/microchip/xc16/v1.61/support/PIC24H/h" -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/_ext/1472/utilidades.o: ../utilidades.c  .generated_files/flags/default/857be4d5c1e6afe9eaa7cf809d12f6cc8ad9e1db .generated_files/flags/default/d5824b4ff755718293ec9fe1ef749f9e9908baab
+	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
+	@${RM} ${OBJECTDIR}/_ext/1472/utilidades.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/utilidades.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../utilidades.c  -o ${OBJECTDIR}/_ext/1472/utilidades.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1472/utilidades.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -I"../../../../Applications/microchip/xc16/v1.61/support/PIC24H/h" -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/_ext/1472/memoria.o: ../memoria.c  .generated_files/flags/default/c4195f1662697d8f68bd1adf5cd1f98b1edb0c03 .generated_files/flags/default/d5824b4ff755718293ec9fe1ef749f9e9908baab
+	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
+	@${RM} ${OBJECTDIR}/_ext/1472/memoria.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/memoria.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../memoria.c  -o ${OBJECTDIR}/_ext/1472/memoria.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1472/memoria.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -I"../../../../Applications/microchip/xc16/v1.61/support/PIC24H/h" -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/_ext/1472/main_Proy.o: ../main_Proy.c  .generated_files/flags/default/9669b86dc41e2ee1f29e9efa1427502065446fa5 .generated_files/flags/default/d5824b4ff755718293ec9fe1ef749f9e9908baab
+	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
+	@${RM} ${OBJECTDIR}/_ext/1472/main_Proy.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/main_Proy.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../main_Proy.c  -o ${OBJECTDIR}/_ext/1472/main_Proy.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1472/main_Proy.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -I"../../../../Applications/microchip/xc16/v1.61/support/PIC24H/h" -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
 else
 ${OBJECTDIR}/_ext/1472/oscilator.o: ../oscilator.c  .generated_files/flags/default/1a2722823efd482f92ac2721ef5a618a3e1f876b .generated_files/flags/default/d5824b4ff755718293ec9fe1ef749f9e9908baab
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
@@ -131,6 +155,30 @@ ${OBJECTDIR}/_ext/1472/UART2_RS232.o: ../UART2_RS232.c  .generated_files/flags/d
 	@${RM} ${OBJECTDIR}/_ext/1472/UART2_RS232.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/UART2_RS232.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../UART2_RS232.c  -o ${OBJECTDIR}/_ext/1472/UART2_RS232.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1472/UART2_RS232.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -I"../../../../Applications/microchip/xc16/v1.61/support/PIC24H/h" -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/_ext/1472/LCD.o: ../LCD.c  .generated_files/flags/default/2109ad70afaaf7a5ee648101d752673580fa1ea5 .generated_files/flags/default/d5824b4ff755718293ec9fe1ef749f9e9908baab
+	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
+	@${RM} ${OBJECTDIR}/_ext/1472/LCD.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/LCD.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../LCD.c  -o ${OBJECTDIR}/_ext/1472/LCD.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1472/LCD.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -I"../../../../Applications/microchip/xc16/v1.61/support/PIC24H/h" -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/_ext/1472/utilidades.o: ../utilidades.c  .generated_files/flags/default/ac9e6dd13fe6d68d250fa81aa023de2b6e454bf4 .generated_files/flags/default/d5824b4ff755718293ec9fe1ef749f9e9908baab
+	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
+	@${RM} ${OBJECTDIR}/_ext/1472/utilidades.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/utilidades.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../utilidades.c  -o ${OBJECTDIR}/_ext/1472/utilidades.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1472/utilidades.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -I"../../../../Applications/microchip/xc16/v1.61/support/PIC24H/h" -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/_ext/1472/memoria.o: ../memoria.c  .generated_files/flags/default/2b2e37e50e9dfdcae4c99b6c5007ebd31a9149e9 .generated_files/flags/default/d5824b4ff755718293ec9fe1ef749f9e9908baab
+	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
+	@${RM} ${OBJECTDIR}/_ext/1472/memoria.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/memoria.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../memoria.c  -o ${OBJECTDIR}/_ext/1472/memoria.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1472/memoria.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -I"../../../../Applications/microchip/xc16/v1.61/support/PIC24H/h" -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/_ext/1472/main_Proy.o: ../main_Proy.c  .generated_files/flags/default/3e9bcd37c628657c1d23d2b36b42b378dc669418 .generated_files/flags/default/d5824b4ff755718293ec9fe1ef749f9e9908baab
+	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
+	@${RM} ${OBJECTDIR}/_ext/1472/main_Proy.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/main_Proy.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../main_Proy.c  -o ${OBJECTDIR}/_ext/1472/main_Proy.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1472/main_Proy.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -I"../../../../Applications/microchip/xc16/v1.61/support/PIC24H/h" -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
 endif
 

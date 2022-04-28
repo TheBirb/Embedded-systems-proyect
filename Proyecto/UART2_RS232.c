@@ -8,6 +8,15 @@
 #include "p24HJ256GP610A.h"
 #include "commons.h"
 #include "timers.h"
+#include "memoria.h"
+
+unsigned int estado=0;
+unsigned int indice=0;
+unsigned int fila_datos=0;
+unsigned int columna_datos=0;
+unsigned int final = 0;
+
+
 
 void inic_UART2(){
     // Velocidad de transmision
@@ -45,4 +54,27 @@ void inic_UART2(){
 	U2STAbits.UTXEN=1;      // habilitar transmision tras habilitar modulo
 
 	Delay_us(T_1BIT_US); 	// Esperar tiempo de 1 bit 
+}
+
+void _ISR_NO_PSV _U2TXInterrupt(){
+    if(estado==0){
+        U2TXREG=home[indice];
+        indice++;
+        if(indice==3){
+            indice=0;
+            estado++;
+        }
+    }else{
+        U2TXREG=LCD_Pantalla[fila_datos][columna_datos];
+        columna_datos++;
+        if(fila_datos!=0 && columna_datos==18){
+            fila_datos++;
+            columna_datos=0;
+        }else if(fila_datos==15 && columna_datos==18){
+            estado=0;
+            columna_datos=0;
+            fila_datos=0;
+        }
+    }
+    IFS1bits.U2TXIF=0;  //bajamos el flag de interrupcion 
 }
