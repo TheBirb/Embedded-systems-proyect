@@ -9,8 +9,10 @@
 ///////////
 //Funciones
 ///////////
-void inic_Timer9 ();
+void inic_Timer3();
+void inic_Timer5();
 void inic_Timer7();
+void inic_Timer9 ();
 void Delay_us(int time);
 void Delay_ms(int time);
 

@@ -12,6 +12,7 @@
 #include "utilidades.h"
 #include "memoria.h"
 #include "LCD.h"
+#include "ADC1.h"
 
 unsigned int flag_T9=0;
 unsigned int flag_crono=0;
@@ -20,6 +21,23 @@ unsigned int L5=0;
 ////////////////////
 //Inicializaciones
 ////////////////////
+void inic_Timer3 ()
+{
+
+    TMR5 = 0 ; 	// Inicializar el registro de cuenta
+    PR5 =  10000-1;	// Periodo del temporizador
+		// Queremos que cuente 0,5 ms.
+		// Fosc= 40 MHz (vease Inic_oscilator()) de modo que
+		// Fcy = 20 MHz (cada instruccion dos ciclos de reloj)
+		// Por tanto, Tcy= 50 ns para ejecutar una instruccion
+		// Para contar 0.5 ms se necesitan 10000 ciclos.
+    T3CONbits.TCKPS = 0;	// escala del prescaler 1:1
+    T3CONbits.TCS = 0;	// reloj interno
+    T3CONbits.TGATE = 0;	// Deshabilitar el modo Gate
+    IEC0bits.T3IE =1;
+    IFS0bits.T3IF =0;
+    T3CONbits.TON = 1;	// puesta en marcha del temporizado
+}
 void inic_Timer5 ()
 {
 
@@ -178,6 +196,11 @@ void cronometro(unsigned int *mili,unsigned int *deci,unsigned int *seg,unsigned
 //////////////////
 //Interrupciones
 //////////////////
+
+void _ISR_NO_PSV _T3Interrupt(){
+    comienzo_muestreo();
+    IFS0bits.T3IF = 0;
+}
 void _ISR_NO_PSV _T5Interrupt(){
     
     switch (estado_LCD) {       //segun en que estado estemos haremos una cosa u otras

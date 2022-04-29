@@ -4,9 +4,14 @@ Tool Name:
   c:\program files (x86)\microchip\xc16\v1.36\bin\bin\..\bin/elf-ld.exe
 
 Command:
+  -TC:\\Users\\ehu\\AppData\\Local\\Temp\\tmp000034f0.00 \
+  -TC:\\Users\\ehu\\AppData\\Local\\Temp\\tmp000034f0.01 \
+  -TC:\\Users\\ehu\\AppData\\Local\\Temp\\tmp000034f0.02 \
+  -TC:\\Users\\ehu\\AppData\\Local\\Temp\\tmp000034f0.03 \
+  -TC:\\Users\\ehu\\AppData\\Local\\Temp\\tmp000034f0.04 \
   -p24HJ256GP610A \
   -o \
-  dist/default/production/Proyecto.X.production.elf \
+  dist/default/debug/Proyecto.X.debug.elf \
   -Lc:/program files (x86)/microchip/xc16/v1.36/bin/bin/.. \
   -Lc:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib \
   -Lc:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../support/PIC24E/gld \
@@ -16,17 +21,20 @@ Command:
   -Lc:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../support/dsPIC33C/gld \
   -Lc:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../support/dsPIC33E/gld \
   -Lc:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../support/dsPIC33F/gld \
-  build/default/production/_ext/1472/oscilator.o \
-  build/default/production/_ext/1472/timers.o \
-  build/default/production/_ext/1472/UART2_RS232.o \
-  build/default/production/_ext/1472/LCD.o \
-  build/default/production/_ext/1472/utilidades.o \
-  build/default/production/_ext/1472/memoria.o \
-  build/default/production/_ext/1472/main_Proy.o \
-  build/default/production/_ext/1472/ADC1.o \
-  build/default/production/_ext/1472/i2c_funciones.o \
+  build/default/debug/_ext/1472/oscilator.o \
+  build/default/debug/_ext/1472/timers.o \
+  build/default/debug/_ext/1472/UART2_RS232.o \
+  build/default/debug/_ext/1472/LCD.o \
+  build/default/debug/_ext/1472/utilidades.o \
+  build/default/debug/_ext/1472/memoria.o \
+  build/default/debug/_ext/1472/main_Proy.o \
+  build/default/debug/_ext/1472/ADC1.o \
+  build/default/debug/_ext/1472/i2c_funciones.o \
   --defsym=__MPLAB_BUILD=1 \
-  -Tp24HJ256GP610A.gld.00 \
+  --defsym=__MPLAB_DEBUG=1 \
+  --defsym=__DEBUG=1 \
+  --defsym=__MPLAB_DEBUGGER_REAL_ICE=1 \
+  -Tp24HJ256GP610A.gld.05 \
   --stack=16 \
   --check-sections \
   --data-init \
@@ -38,10 +46,10 @@ Command:
   --stackguard=16 \
   --no-force-link \
   --smart-io \
-  -Map=dist/default/production/Proyecto.X.production.map \
+  -Map=dist/default/debug/Proyecto.X.debug.map \
   --report-mem \
   --memorysummary \
-  dist/default/production/memoryfile.xml \
+  dist/default/debug/memoryfile.xml \
   -start-group \
   --library=lega-pic30-elf \
   --library=m-elf \
@@ -79,12 +87,17 @@ section                    address   length (PC units)   length (bytes) (dec)
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-.nbss                        0x800                   0            0x16  (22)
-.data                        0x816                   0           0x120  (288)
-.bss                         0x936                   0            0x50  (80)
-.data                        0x986                   0            0x10  (16)
+reserve_data_0x800           0x800                0x20            0x20  (32)
+reserve_data_0x820           0x820                 0x2             0x2  (2)
+reserve_data_0x822           0x822                 0x2             0x2  (2)
+reserve_data_0x824           0x824                 0x2             0x2  (2)
+reserve_data_0x826           0x826                0x2a            0x2a  (42)
+.nbss                        0x850                   0            0x16  (22)
+.data                        0x866                   0           0x120  (288)
+.bss                         0x986                   0            0x50  (80)
+.data                        0x9d6                   0            0x10  (16)
 
-                 Total "data" memory used (bytes):          0x196  (406) 2%
+                 Total "data" memory used (bytes):          0x1e6  (486) 2%
 
 
 Dynamic Memory Usage
@@ -92,52 +105,52 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                        0x996                              0x3e6a  (15978)
+stack                        0x9e6                              0x3e1a  (15898)
 
-                 Maximum dynamic memory (bytes):         0x3e6a  (15978)
+                 Maximum dynamic memory (bytes):         0x3e1a  (15898)
 
 
 External Symbols in Data Memory (by address):
 
-                    0x0800                  _estado
-                    0x0802                  _indice
-                    0x0804                  _fila_datos
-                    0x0806                  _columna_datos
-                    0x0808                  _final
-                    0x080a                  _flag_T9
-                    0x080c                  _flag_crono
-                    0x080e                  _estado_LCD
-                    0x0810                  _L5
-                    0x0812                  _n_muestras
-                    0x0814                  _flag_media
-                    0x0816                  _LCD_Pantalla
-                    0x0936                  _muestras_poten
-                    0x0946                  _muestras_temp
-                    0x0956                  _muestras_j_x
-                    0x0966                  _muestras_j_y
-                    0x0976                  _muestras_j_z
-                    0x0986                  _tabla_carac
+                    0x0850                  _estado
+                    0x0852                  _indice
+                    0x0854                  _fila_datos
+                    0x0856                  _columna_datos
+                    0x0858                  _final
+                    0x085a                  _flag_T9
+                    0x085c                  _flag_crono
+                    0x085e                  _estado_LCD
+                    0x0860                  _L5
+                    0x0862                  _n_muestras
+                    0x0864                  _flag_media
+                    0x0866                  _LCD_Pantalla
+                    0x0986                  _muestras_poten
+                    0x0996                  _muestras_temp
+                    0x09a6                  _muestras_j_x
+                    0x09b6                  _muestras_j_y
+                    0x09c6                  _muestras_j_z
+                    0x09d6                  _tabla_carac
 
 External Symbols in Data Memory (by name):
 
-                    0x0810                  _L5
-                    0x0816                  _LCD_Pantalla
-                    0x0806                  _columna_datos
-                    0x0800                  _estado
-                    0x080e                  _estado_LCD
-                    0x0804                  _fila_datos
-                    0x0808                  _final
-                    0x080a                  _flag_T9
-                    0x080c                  _flag_crono
-                    0x0814                  _flag_media
-                    0x0802                  _indice
-                    0x0956                  _muestras_j_x
-                    0x0966                  _muestras_j_y
-                    0x0976                  _muestras_j_z
-                    0x0936                  _muestras_poten
-                    0x0946                  _muestras_temp
-                    0x0812                  _n_muestras
-                    0x0986                  _tabla_carac
+                    0x0860                  _L5
+                    0x0866                  _LCD_Pantalla
+                    0x0856                  _columna_datos
+                    0x0850                  _estado
+                    0x085e                  _estado_LCD
+                    0x0854                  _fila_datos
+                    0x0858                  _final
+                    0x085a                  _flag_T9
+                    0x085c                  _flag_crono
+                    0x0864                  _flag_media
+                    0x0852                  _indice
+                    0x09a6                  _muestras_j_x
+                    0x09b6                  _muestras_j_y
+                    0x09c6                  _muestras_j_z
+                    0x0986                  _muestras_poten
+                    0x0996                  _muestras_temp
+                    0x0862                  _n_muestras
+                    0x09d6                  _tabla_carac
 
 External Symbols in Program Memory (by address):
 
@@ -262,16 +275,44 @@ FUID3            0xf80016           0x000002
 
 Linker script and memory map
 
-LOAD build/default/production/_ext/1472/oscilator.o
-LOAD build/default/production/_ext/1472/timers.o
-LOAD build/default/production/_ext/1472/UART2_RS232.o
-LOAD build/default/production/_ext/1472/LCD.o
-LOAD build/default/production/_ext/1472/utilidades.o
-LOAD build/default/production/_ext/1472/memoria.o
-LOAD build/default/production/_ext/1472/main_Proy.o
-LOAD build/default/production/_ext/1472/ADC1.o
-LOAD build/default/production/_ext/1472/i2c_funciones.o
+
+reserve_data_0x800
+                    0x0800         0x20
+                    0x0820                  . = 0x20
+ *fill*             0x0800         0x2000
+
+reserve_data_0x820
+                    0x0820          0x2
+                    0x0822                  . = 0x2
+ *fill*             0x0820          0x200
+
+reserve_data_0x822
+                    0x0822          0x2
+                    0x0824                  . = 0x2
+ *fill*             0x0822          0x200
+
+reserve_data_0x824
+                    0x0824          0x2
+                    0x0826                  . = 0x2
+ *fill*             0x0824          0x200
+
+reserve_data_0x826
+                    0x0826         0x2a
+                    0x0850                  . = 0x2a
+ *fill*             0x0826         0x2a00
+LOAD build/default/debug/_ext/1472/oscilator.o
+LOAD build/default/debug/_ext/1472/timers.o
+LOAD build/default/debug/_ext/1472/UART2_RS232.o
+LOAD build/default/debug/_ext/1472/LCD.o
+LOAD build/default/debug/_ext/1472/utilidades.o
+LOAD build/default/debug/_ext/1472/memoria.o
+LOAD build/default/debug/_ext/1472/main_Proy.o
+LOAD build/default/debug/_ext/1472/ADC1.o
+LOAD build/default/debug/_ext/1472/i2c_funciones.o
                     0x0001                  __MPLAB_BUILD = 0x1
+                    0x0001                  __MPLAB_DEBUG = 0x1
+                    0x0001                  __DEBUG = 0x1
+                    0x0001                  __MPLAB_DEBUGGER_REAL_ICE = 0x1
 LOAD p24HJ256GP610A
 LOAD c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libfx-elf.a
                     0xf80000                  __FBS = 0xf80000
@@ -313,14 +354,14 @@ LOAD c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libfx-elf.a
  *(.user_init)
  *(.handle)
  *(.isr*)
- .isr.text        0x0002c8         0xc8 build/default/production/_ext/1472/timers.o
+ .isr.text        0x0002c8         0xc8 build/default/debug/_ext/1472/timers.o
                   0x0002c8                  __T3Interrupt
                   0x0002e6                  __T5Interrupt
                   0x00036e                  __T7Interrupt
                   0x00037e                  __T9Interrupt
- .isr.text        0x000390         0x76 build/default/production/_ext/1472/UART2_RS232.o
+ .isr.text        0x000390         0x76 build/default/debug/_ext/1472/UART2_RS232.o
                   0x000390                  __U2TXInterrupt
- .isr.text        0x000406         0xc4 build/default/production/_ext/1472/ADC1.o
+ .isr.text        0x000406         0xc4 build/default/debug/_ext/1472/ADC1.o
                   0x000406                  __ADC1Interrupt
  .isr             0x0004ca          0x4 default_isr
                   0x0004ca                  __DefaultInterrupt
@@ -377,62 +418,62 @@ __FUID3
 
 .debug_info       0x000000       0x493f
  *(.debug_info)
- .debug_info      0x000000        0x633 build/default/production/_ext/1472/oscilator.o
- .debug_info      0x000633       0x1331 build/default/production/_ext/1472/timers.o
- .debug_info      0x001964        0xa96 build/default/production/_ext/1472/UART2_RS232.o
- .debug_info      0x0023fa        0x853 build/default/production/_ext/1472/LCD.o
- .debug_info      0x002c4d        0x361 build/default/production/_ext/1472/utilidades.o
- .debug_info      0x002fae        0x164 build/default/production/_ext/1472/memoria.o
- .debug_info      0x003112        0x314 build/default/production/_ext/1472/main_Proy.o
- .debug_info      0x003426        0xd68 build/default/production/_ext/1472/ADC1.o
- .debug_info      0x00418e        0x7b1 build/default/production/_ext/1472/i2c_funciones.o
+ .debug_info      0x000000        0x633 build/default/debug/_ext/1472/oscilator.o
+ .debug_info      0x000633       0x1331 build/default/debug/_ext/1472/timers.o
+ .debug_info      0x001964        0xa96 build/default/debug/_ext/1472/UART2_RS232.o
+ .debug_info      0x0023fa        0x853 build/default/debug/_ext/1472/LCD.o
+ .debug_info      0x002c4d        0x361 build/default/debug/_ext/1472/utilidades.o
+ .debug_info      0x002fae        0x164 build/default/debug/_ext/1472/memoria.o
+ .debug_info      0x003112        0x314 build/default/debug/_ext/1472/main_Proy.o
+ .debug_info      0x003426        0xd68 build/default/debug/_ext/1472/ADC1.o
+ .debug_info      0x00418e        0x7b1 build/default/debug/_ext/1472/i2c_funciones.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x7f3
  *(.debug_abbrev)
- .debug_abbrev    0x000000         0xc3 build/default/production/_ext/1472/oscilator.o
- .debug_abbrev    0x0000c3        0x1ae build/default/production/_ext/1472/timers.o
- .debug_abbrev    0x000271        0x119 build/default/production/_ext/1472/UART2_RS232.o
- .debug_abbrev    0x00038a         0xbf build/default/production/_ext/1472/LCD.o
- .debug_abbrev    0x000449         0xaa build/default/production/_ext/1472/utilidades.o
- .debug_abbrev    0x0004f3         0x42 build/default/production/_ext/1472/memoria.o
- .debug_abbrev    0x000535         0x8f build/default/production/_ext/1472/main_Proy.o
- .debug_abbrev    0x0005c4        0x130 build/default/production/_ext/1472/ADC1.o
- .debug_abbrev    0x0006f4         0xff build/default/production/_ext/1472/i2c_funciones.o
+ .debug_abbrev    0x000000         0xc3 build/default/debug/_ext/1472/oscilator.o
+ .debug_abbrev    0x0000c3        0x1ae build/default/debug/_ext/1472/timers.o
+ .debug_abbrev    0x000271        0x119 build/default/debug/_ext/1472/UART2_RS232.o
+ .debug_abbrev    0x00038a         0xbf build/default/debug/_ext/1472/LCD.o
+ .debug_abbrev    0x000449         0xaa build/default/debug/_ext/1472/utilidades.o
+ .debug_abbrev    0x0004f3         0x42 build/default/debug/_ext/1472/memoria.o
+ .debug_abbrev    0x000535         0x8f build/default/debug/_ext/1472/main_Proy.o
+ .debug_abbrev    0x0005c4        0x130 build/default/debug/_ext/1472/ADC1.o
+ .debug_abbrev    0x0006f4         0xff build/default/debug/_ext/1472/i2c_funciones.o
 
 .debug_line       0x000000        0x968
  *(.debug_line)
- .debug_line      0x000000         0xf8 build/default/production/_ext/1472/oscilator.o
- .debug_line      0x0000f8        0x1a6 build/default/production/_ext/1472/timers.o
- .debug_line      0x00029e        0x131 build/default/production/_ext/1472/UART2_RS232.o
- .debug_line      0x0003cf        0x11d build/default/production/_ext/1472/LCD.o
- .debug_line      0x0004ec         0x74 build/default/production/_ext/1472/utilidades.o
- .debug_line      0x000560         0x2a build/default/production/_ext/1472/memoria.o
- .debug_line      0x00058a        0x12e build/default/production/_ext/1472/main_Proy.o
- .debug_line      0x0006b8        0x13d build/default/production/_ext/1472/ADC1.o
- .debug_line      0x0007f5        0x173 build/default/production/_ext/1472/i2c_funciones.o
+ .debug_line      0x000000         0xf8 build/default/debug/_ext/1472/oscilator.o
+ .debug_line      0x0000f8        0x1a6 build/default/debug/_ext/1472/timers.o
+ .debug_line      0x00029e        0x131 build/default/debug/_ext/1472/UART2_RS232.o
+ .debug_line      0x0003cf        0x11d build/default/debug/_ext/1472/LCD.o
+ .debug_line      0x0004ec         0x74 build/default/debug/_ext/1472/utilidades.o
+ .debug_line      0x000560         0x2a build/default/debug/_ext/1472/memoria.o
+ .debug_line      0x00058a        0x12e build/default/debug/_ext/1472/main_Proy.o
+ .debug_line      0x0006b8        0x13d build/default/debug/_ext/1472/ADC1.o
+ .debug_line      0x0007f5        0x173 build/default/debug/_ext/1472/i2c_funciones.o
 
 .debug_frame      0x000000        0x598
  *(.debug_frame)
- .debug_frame     0x000000         0x30 build/default/production/_ext/1472/oscilator.o
- .debug_frame     0x000030        0x1d8 build/default/production/_ext/1472/timers.o
- .debug_frame     0x000208         0x5e build/default/production/_ext/1472/UART2_RS232.o
- .debug_frame     0x000266         0x68 build/default/production/_ext/1472/LCD.o
- .debug_frame     0x0002ce         0xa0 build/default/production/_ext/1472/utilidades.o
- .debug_frame     0x00036e         0x30 build/default/production/_ext/1472/main_Proy.o
- .debug_frame     0x00039e         0x7a build/default/production/_ext/1472/ADC1.o
- .debug_frame     0x000418        0x180 build/default/production/_ext/1472/i2c_funciones.o
+ .debug_frame     0x000000         0x30 build/default/debug/_ext/1472/oscilator.o
+ .debug_frame     0x000030        0x1d8 build/default/debug/_ext/1472/timers.o
+ .debug_frame     0x000208         0x5e build/default/debug/_ext/1472/UART2_RS232.o
+ .debug_frame     0x000266         0x68 build/default/debug/_ext/1472/LCD.o
+ .debug_frame     0x0002ce         0xa0 build/default/debug/_ext/1472/utilidades.o
+ .debug_frame     0x00036e         0x30 build/default/debug/_ext/1472/main_Proy.o
+ .debug_frame     0x00039e         0x7a build/default/debug/_ext/1472/ADC1.o
+ .debug_frame     0x000418        0x180 build/default/debug/_ext/1472/i2c_funciones.o
 
 .debug_str        0x000000        0x2bf
  *(.debug_str)
- .debug_str       0x000000         0x1f build/default/production/_ext/1472/oscilator.o
- .debug_str       0x00001f         0xb1 build/default/production/_ext/1472/timers.o
- .debug_str       0x0000d0         0x56 build/default/production/_ext/1472/UART2_RS232.o
- .debug_str       0x000126         0x26 build/default/production/_ext/1472/LCD.o
- .debug_str       0x00014c          0xc build/default/production/_ext/1472/utilidades.o
- .debug_str       0x000158         0x5c build/default/production/_ext/1472/main_Proy.o
- .debug_str       0x0001b4         0xc2 build/default/production/_ext/1472/ADC1.o
- .debug_str       0x000276         0x49 build/default/production/_ext/1472/i2c_funciones.o
+ .debug_str       0x000000         0x1f build/default/debug/_ext/1472/oscilator.o
+ .debug_str       0x00001f         0xb1 build/default/debug/_ext/1472/timers.o
+ .debug_str       0x0000d0         0x56 build/default/debug/_ext/1472/UART2_RS232.o
+ .debug_str       0x000126         0x26 build/default/debug/_ext/1472/LCD.o
+ .debug_str       0x00014c          0xc build/default/debug/_ext/1472/utilidades.o
+ .debug_str       0x000158         0x5c build/default/debug/_ext/1472/main_Proy.o
+ .debug_str       0x0001b4         0xc2 build/default/debug/_ext/1472/ADC1.o
+ .debug_str       0x000276         0x49 build/default/debug/_ext/1472/i2c_funciones.o
 
 .debug_loc
  *(.debug_loc)
@@ -444,23 +485,23 @@ __FUID3
                   0x000000        0x43f
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0x25 build/default/production/_ext/1472/oscilator.o
+                  0x000000         0x25 build/default/debug/_ext/1472/oscilator.o
  .debug_pubnames
-                  0x000025        0x110 build/default/production/_ext/1472/timers.o
+                  0x000025        0x110 build/default/debug/_ext/1472/timers.o
  .debug_pubnames
-                  0x000135         0x75 build/default/production/_ext/1472/UART2_RS232.o
+                  0x000135         0x75 build/default/debug/_ext/1472/UART2_RS232.o
  .debug_pubnames
-                  0x0001aa         0x38 build/default/production/_ext/1472/LCD.o
+                  0x0001aa         0x38 build/default/debug/_ext/1472/LCD.o
  .debug_pubnames
-                  0x0001e2         0x85 build/default/production/_ext/1472/utilidades.o
+                  0x0001e2         0x85 build/default/debug/_ext/1472/utilidades.o
  .debug_pubnames
-                  0x000267         0x23 build/default/production/_ext/1472/memoria.o
+                  0x000267         0x23 build/default/debug/_ext/1472/memoria.o
  .debug_pubnames
-                  0x00028a         0x1b build/default/production/_ext/1472/main_Proy.o
+                  0x00028a         0x1b build/default/debug/_ext/1472/main_Proy.o
  .debug_pubnames
-                  0x0002a5         0xbf build/default/production/_ext/1472/ADC1.o
+                  0x0002a5         0xbf build/default/debug/_ext/1472/ADC1.o
  .debug_pubnames
-                  0x000364         0xdb build/default/production/_ext/1472/i2c_funciones.o
+                  0x000364         0xdb build/default/debug/_ext/1472/i2c_funciones.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -468,21 +509,21 @@ __FUID3
 .debug_aranges    0x000000         0xc0
  *(.debug_aranges)
  .debug_aranges
-                  0x000000         0x18 build/default/production/_ext/1472/oscilator.o
+                  0x000000         0x18 build/default/debug/_ext/1472/oscilator.o
  .debug_aranges
-                  0x000018         0x18 build/default/production/_ext/1472/timers.o
+                  0x000018         0x18 build/default/debug/_ext/1472/timers.o
  .debug_aranges
-                  0x000030         0x18 build/default/production/_ext/1472/UART2_RS232.o
+                  0x000030         0x18 build/default/debug/_ext/1472/UART2_RS232.o
  .debug_aranges
-                  0x000048         0x18 build/default/production/_ext/1472/LCD.o
+                  0x000048         0x18 build/default/debug/_ext/1472/LCD.o
  .debug_aranges
-                  0x000060         0x18 build/default/production/_ext/1472/utilidades.o
+                  0x000060         0x18 build/default/debug/_ext/1472/utilidades.o
  .debug_aranges
-                  0x000078         0x18 build/default/production/_ext/1472/main_Proy.o
+                  0x000078         0x18 build/default/debug/_ext/1472/main_Proy.o
  .debug_aranges
-                  0x000090         0x18 build/default/production/_ext/1472/ADC1.o
+                  0x000090         0x18 build/default/debug/_ext/1472/ADC1.o
  .debug_aranges
-                  0x0000a8         0x18 build/default/production/_ext/1472/i2c_funciones.o
+                  0x0000a8         0x18 build/default/debug/_ext/1472/i2c_funciones.o
                     0x0000                  WREG0 = 0x0
                     0x0000                  _WREG0 = 0x0
                     0x0002                  WREG1 = 0x2
@@ -1641,133 +1682,133 @@ LOAD c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\liblega-pic30
 LOAD c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\liblega-c-elf.a
 END GROUP
-OUTPUT(dist/default/production/Proyecto.X.production.elf elf32-pic30)
+OUTPUT(dist/default/debug/Proyecto.X.debug.elf elf32-pic30)
 LOAD default_isr
 LOAD data_init
 
 .debug_pubtypes
                   0x0000c0        0x4c2
  .debug_pubtypes
-                  0x0000c0         0x7e build/default/production/_ext/1472/oscilator.o
+                  0x0000c0         0x7e build/default/debug/_ext/1472/oscilator.o
  .debug_pubtypes
-                  0x00013e        0x166 build/default/production/_ext/1472/timers.o
+                  0x00013e        0x166 build/default/debug/_ext/1472/timers.o
  .debug_pubtypes
-                  0x0002a4         0xb6 build/default/production/_ext/1472/UART2_RS232.o
+                  0x0002a4         0xb6 build/default/debug/_ext/1472/UART2_RS232.o
  .debug_pubtypes
-                  0x00035a         0x97 build/default/production/_ext/1472/LCD.o
+                  0x00035a         0x97 build/default/debug/_ext/1472/LCD.o
  .debug_pubtypes
-                  0x0003f1         0x12 build/default/production/_ext/1472/utilidades.o
+                  0x0003f1         0x12 build/default/debug/_ext/1472/utilidades.o
  .debug_pubtypes
-                  0x000403         0x12 build/default/production/_ext/1472/memoria.o
+                  0x000403         0x12 build/default/debug/_ext/1472/memoria.o
  .debug_pubtypes
-                  0x000415         0x1f build/default/production/_ext/1472/main_Proy.o
+                  0x000415         0x1f build/default/debug/_ext/1472/main_Proy.o
  .debug_pubtypes
-                  0x000434         0xe7 build/default/production/_ext/1472/ADC1.o
+                  0x000434         0xe7 build/default/debug/_ext/1472/ADC1.o
  .debug_pubtypes
-                  0x00051b         0x67 build/default/production/_ext/1472/i2c_funciones.o
+                  0x00051b         0x67 build/default/debug/_ext/1472/i2c_funciones.o
 
 __c30_signature
                   0x000582         0x42
  __c30_signature
-                  0x000582          0x6 build/default/production/_ext/1472/oscilator.o
+                  0x000582          0x6 build/default/debug/_ext/1472/oscilator.o
  __c30_signature
-                  0x000588          0x6 build/default/production/_ext/1472/timers.o
+                  0x000588          0x6 build/default/debug/_ext/1472/timers.o
  __c30_signature
-                  0x00058e          0x6 build/default/production/_ext/1472/UART2_RS232.o
+                  0x00058e          0x6 build/default/debug/_ext/1472/UART2_RS232.o
  __c30_signature
-                  0x000594          0x6 build/default/production/_ext/1472/LCD.o
+                  0x000594          0x6 build/default/debug/_ext/1472/LCD.o
  __c30_signature
-                  0x00059a          0x6 build/default/production/_ext/1472/utilidades.o
+                  0x00059a          0x6 build/default/debug/_ext/1472/utilidades.o
  __c30_signature
-                  0x0005a0          0x6 build/default/production/_ext/1472/memoria.o
+                  0x0005a0          0x6 build/default/debug/_ext/1472/memoria.o
  __c30_signature
-                  0x0005a6          0x6 build/default/production/_ext/1472/main_Proy.o
+                  0x0005a6          0x6 build/default/debug/_ext/1472/main_Proy.o
  __c30_signature
-                  0x0005ac          0x6 build/default/production/_ext/1472/ADC1.o
+                  0x0005ac          0x6 build/default/debug/_ext/1472/ADC1.o
  __c30_signature
-                  0x0005b2          0x6 build/default/production/_ext/1472/i2c_funciones.o
+                  0x0005b2          0x6 build/default/debug/_ext/1472/i2c_funciones.o
  __c30_signature
                   0x0005b8          0x6 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
  __c30_signature
                   0x0005be          0x6 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
 
-.nbss               0x0800         0x16
- .nbss              0x0800          0xa build/default/production/_ext/1472/UART2_RS232.o
-                    0x0800                  _estado
-                    0x0802                  _indice
-                    0x0804                  _fila_datos
-                    0x0806                  _columna_datos
-                    0x0808                  _final
- .nbss              0x080a          0x8 build/default/production/_ext/1472/timers.o
-                    0x080a                  _flag_T9
-                    0x080c                  _flag_crono
-                    0x080e                  _estado_LCD
-                    0x0810                  _L5
- .nbss              0x0812          0x4 build/default/production/_ext/1472/ADC1.o
-                    0x0812                  _n_muestras
-                    0x0814                  _flag_media
+.nbss               0x0850         0x16
+ .nbss              0x0850          0xa build/default/debug/_ext/1472/UART2_RS232.o
+                    0x0850                  _estado
+                    0x0852                  _indice
+                    0x0854                  _fila_datos
+                    0x0856                  _columna_datos
+                    0x0858                  _final
+ .nbss              0x085a          0x8 build/default/debug/_ext/1472/timers.o
+                    0x085a                  _flag_T9
+                    0x085c                  _flag_crono
+                    0x085e                  _estado_LCD
+                    0x0860                  _L5
+ .nbss              0x0862          0x4 build/default/debug/_ext/1472/ADC1.o
+                    0x0862                  _n_muestras
+                    0x0864                  _flag_media
 
-.data               0x0816        0x120
- .data              0x0816        0x120 build/default/production/_ext/1472/memoria.o
-                    0x0816                  _LCD_Pantalla
+.data               0x0866        0x120
+ .data              0x0866        0x120 build/default/debug/_ext/1472/memoria.o
+                    0x0866                  _LCD_Pantalla
 
-.bss                0x0936         0x50
- .bss               0x0936         0x50 build/default/production/_ext/1472/ADC1.o
-                    0x0936                  _muestras_poten
-                    0x0946                  _muestras_temp
-                    0x0956                  _muestras_j_x
-                    0x0966                  _muestras_j_y
-                    0x0976                  _muestras_j_z
+.bss                0x0986         0x50
+ .bss               0x0986         0x50 build/default/debug/_ext/1472/ADC1.o
+                    0x0986                  _muestras_poten
+                    0x0996                  _muestras_temp
+                    0x09a6                  _muestras_j_x
+                    0x09b6                  _muestras_j_y
+                    0x09c6                  _muestras_j_z
 
-.data               0x0986         0x10
- .data              0x0986         0x10 build/default/production/_ext/1472/utilidades.o
-                    0x0986                  _tabla_carac
+.data               0x09d6         0x10
+ .data              0x09d6         0x10 build/default/debug/_ext/1472/utilidades.o
+                    0x09d6                  _tabla_carac
 
 .config_FWDTEN    0xf8000a          0x2
  .config_FWDTEN
-                  0xf8000a          0x2 build/default/production/_ext/1472/oscilator.o
+                  0xf8000a          0x2 build/default/debug/_ext/1472/oscilator.o
 
 .config_FCKSM     0xf80008          0x2
- .config_FCKSM    0xf80008          0x2 build/default/production/_ext/1472/oscilator.o
+ .config_FCKSM    0xf80008          0x2 build/default/debug/_ext/1472/oscilator.o
 
 .config_IESO      0xf80006          0x2
- .config_IESO     0xf80006          0x2 build/default/production/_ext/1472/oscilator.o
+ .config_IESO     0xf80006          0x2 build/default/debug/_ext/1472/oscilator.o
 
 .ivt._T3Interrupt
                   0x000024          0x2
  .ivt._T3Interrupt
-                  0x000024          0x2 build/default/production/_ext/1472/timers.o
+                  0x000024          0x2 build/default/debug/_ext/1472/timers.o
 
 .ivt._T5Interrupt
                   0x00004c          0x2
  .ivt._T5Interrupt
-                  0x00004c          0x2 build/default/production/_ext/1472/timers.o
+                  0x00004c          0x2 build/default/debug/_ext/1472/timers.o
 
 .ivt._T7Interrupt
                   0x000074          0x2
  .ivt._T7Interrupt
-                  0x000074          0x2 build/default/production/_ext/1472/timers.o
+                  0x000074          0x2 build/default/debug/_ext/1472/timers.o
 
 .ivt._T9Interrupt
                   0x00007c          0x2
  .ivt._T9Interrupt
-                  0x00007c          0x2 build/default/production/_ext/1472/timers.o
+                  0x00007c          0x2 build/default/debug/_ext/1472/timers.o
 
 .ivt._U2TXInterrupt
                   0x000052          0x2
  .ivt._U2TXInterrupt
-                  0x000052          0x2 build/default/production/_ext/1472/UART2_RS232.o
+                  0x000052          0x2 build/default/debug/_ext/1472/UART2_RS232.o
 
 .ivt._ADC1Interrupt
                   0x00002e          0x2
  .ivt._ADC1Interrupt
-                  0x00002e          0x2 build/default/production/_ext/1472/ADC1.o
+                  0x00002e          0x2 build/default/debug/_ext/1472/ADC1.o
 
 .const              0x84d0          0x4 load address 0x0004d0  
- .const             0x84d0          0x4 build/default/production/_ext/1472/UART2_RS232.o
+ .const             0x84d0          0x4 build/default/debug/_ext/1472/UART2_RS232.o
 
 .text             0x0004d4        0x724
- .text            0x0004d4        0x32e build/default/production/_ext/1472/i2c_funciones.o
+ .text            0x0004d4        0x32e build/default/debug/_ext/1472/i2c_funciones.o
                   0x0004d4                  _InitI2C_1
                   0x0004e4                  _StartI2C_1
                   0x000512                  _RestartI2C_1
@@ -1781,7 +1822,7 @@ __c30_signature
                   0x0006b4                  _getsI2C_1
                   0x0006f4                  _LDByteReadI2C_1
                   0x00078e                  _LDByteWriteI2C_1
- .text            0x000802        0x29e build/default/production/_ext/1472/timers.o
+ .text            0x000802        0x29e build/default/debug/_ext/1472/timers.o
                   0x000802                  _inic_Timer3
                   0x000820                  _inic_Timer5
                   0x00083e                  _inic_Timer7
@@ -1791,7 +1832,7 @@ __c30_signature
                   0x00091c                  _inic_crono
                   0x000942                  _reinic_crono
                   0x00096e                  _cronometro
- .text            0x000aa0        0x158 build/default/production/_ext/1472/utilidades.o
+ .text            0x000aa0        0x158 build/default/debug/_ext/1472/utilidades.o
                   0x000aa0                  _conversion_tiempo
                   0x000ae8                  _imprimir_decimal
                   0x000b32                  _dec_a_hex
@@ -1802,16 +1843,16 @@ __c30_signature
  .dinit           0x000bf8         0xf2 data_init
 
 .text             0x000cea        0x228
- .text            0x000cea         0xb0 build/default/production/_ext/1472/LCD.o
+ .text            0x000cea         0xb0 build/default/debug/_ext/1472/LCD.o
                   0x000cea                  _lcd_cmd
                   0x000d16                  _lcd_data
                   0x000d44                  _Init_LCD
- .text            0x000d9a         0xa6 build/default/production/_ext/1472/main_Proy.o
+ .text            0x000d9a         0xa6 build/default/debug/_ext/1472/main_Proy.o
                   0x000d9a                  _main
- .text            0x000e40         0x52 build/default/production/_ext/1472/oscilator.o
+ .text            0x000e40         0x52 build/default/debug/_ext/1472/oscilator.o
                   0x000e40                  _inic_oscilator
- .text            0x000e92         0x52 build/default/production/_ext/1472/ADC1.o
+ .text            0x000e92         0x52 build/default/debug/_ext/1472/ADC1.o
                   0x000e92                  _inic_ADC1
                   0x000edc                  _comienzo_muestreo
- .text            0x000ee4         0x2e build/default/production/_ext/1472/UART2_RS232.o
+ .text            0x000ee4         0x2e build/default/debug/_ext/1472/UART2_RS232.o
                   0x000ee4                  _inic_UART2
