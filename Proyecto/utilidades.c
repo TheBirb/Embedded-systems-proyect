@@ -72,7 +72,7 @@ unsigned int calcular_distancia(unsigned char *vec){
 }
 
 //Función para calcular medias de las muestras analogicas
-unsigned int calcular_media(unsigned char *vec){
+unsigned int calcular_media(unsigned int *vec){
     int i;
     unsigned int media=0, resultado=0;
     
