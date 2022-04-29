@@ -30,20 +30,15 @@ void conversion_tiempo (unsigned char *dir, unsigned int val)
     }
 }
 
-void imprimir_decimal(unsigned char *dir, unsigned int val){
+void imprimir_decimal(unsigned char *dir, unsigned int val, unsigned int n_dig){
     unsigned char dig;
     unsigned int i=0;
-//    if(val > 9999){
-//        while(1);
-//    } else {
-        while(i<4){
-            dig = val %10;
-            dir[3-i]=tabla_carac[dig];
-            val = val /10;
-
-            i++;
-        }
-//    }
+    while(i<n_dig){
+        dig = val %10;
+        dir[(n_dig-1)-i]=tabla_carac[dig];
+        val = val /10;
+        i++;
+    }
 }
 //Función para pasar un numero de decima a hexadecimal 
 void dec_a_hex(unsigned int dec, unsigned char *hex,unsigned int longitud) {
@@ -76,16 +71,15 @@ unsigned int calcular_distancia(unsigned char *vec){
     return dist;
 }
 
-//Función para calcular media de las muestras del potenciometro
-/*
-unsigned int calcular_media(){
+//Función para calcular medias de las muestras analogicas
+unsigned int calcular_media(unsigned char *vec){
     int i;
     unsigned int media=0, resultado=0;
     
     for (i=0; i < 8; i++){
-        media += muestras_poten[i];
+        media += vec[i];
     }
     
     resultado = media/8;
     return resultado;
-}*/
+}
