@@ -18,6 +18,15 @@ int main(void) {
     unsigned int ms,ds,s,min;
     inic_oscilator();
     inic_UART2();
+    inic_Timer7();
+    inic_crono(&ms,&ds,&s,&min);
+    unsigned char zeros[2];
+    conversion_tiempo(zeros,0);
+    LCD_Pantalla[1][8]=zeros[0];
+    LCD_Pantalla[1][9]=zeros[0];
+    LCD_Pantalla[1][11]=zeros[0];
+    LCD_Pantalla[1][12]=zeros[0];
+    LCD_Pantalla[1][14]=zeros[0];
     U2TXREG=0;
     while(1){
         cronometro(&ms,&ds,&s,&min);
