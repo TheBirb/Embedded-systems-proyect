@@ -78,7 +78,7 @@ AD1PCFGLbits.PCFG5=0;   // potenciometro
 AD1PCFGLbits.PCFG4=0;   // sensor temperatura
 AD1PCFGLbits.PCFG0=0;   // Joystic eje X (Tiene la entrada an. 0, pin RB0)
 AD1PCFGLbits.PCFG1=0;   // Joystic eje Y (Tiene la entrada an. 1, pin RB1)
-AD1PCFGLbits.PCFG3=0;   // Joystic eje Z (palanca) (Tiene la entrada an. 3, pin RB3)
+AD1PCFGLbits.PCFG2=0;   // Joystic eje Z (palanca) (Tiene la entrada an. 2, pin RB2)
 
 // Bits y campos relacionados con las interrupciones
 IFS0bits.AD1IF=0;    
@@ -102,15 +102,15 @@ void _ISR_NO_PSV _ADC1Interrupt(){
         
         switch (AD1CHS0bits.CH0SA) {
             case 0 :
-                unsigned int muestras_j_x[8]=ADC1BUF0;
+                muestras_j_x[n_muestras]=ADC1BUF0;
                 AD1CHS0bits.CH0SA=1; 
                 break;
             case 1 :
-                unsigned int muestras_j_y[8]=ADC1BUF0;
-                AD1CHS0bits.CH0SA=3; 
+                muestras_j_y[n_muestras]=ADC1BUF0;
+                AD1CHS0bits.CH0SA=2; 
                 break;
-            case 3 :
-                unsigned int muestras_j_z[8]=ADC1BUF0;
+            case 2 :
+                muestras_j_z[n_muestras]=ADC1BUF0;
                 AD1CHS0bits.CH0SA=4; 
                 break;
             case 4 :
