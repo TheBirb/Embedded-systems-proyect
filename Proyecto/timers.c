@@ -21,6 +21,7 @@ unsigned int L5=0;
 unsigned int Tac=0;
 unsigned int estadoPWM=0;
 unsigned int estadoT2;
+unsigned int scroll=0;
 ////////////////////
 //Inicializaciones
 ////////////////////
@@ -279,7 +280,7 @@ void _ISR_NO_PSV _T5Interrupt(){
             estado_LCD++;
             break;
         case 1:             //en el estado 1 vamos recorriendo todos los caracteres de la linea 0 por cada interrupcion 
-            lcd_data(LCD_Pantalla[0][L5]);
+            lcd_data(LCD_Pantalla[scroll][L5]);
             L5++;
             if (L5==16){
                 L5=0;
@@ -291,7 +292,7 @@ void _ISR_NO_PSV _T5Interrupt(){
             estado_LCD++;
             break;
         case 3:             //en el estado 3 vamos recorriendo todos los caracteres de la linea 1 por cada interrupcion
-            lcd_data(LCD_Pantalla[1][L5]);
+            lcd_data(LCD_Pantalla[scroll+1][L5]);
             L5++;
             if (L5==16){
                 L5=0;

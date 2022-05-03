@@ -5,8 +5,7 @@
  * Jon Moríñigo
  * Iker Fernández
  */
-
-extern unsigned int duty0,duty1,duty2,duty3;
+extern unsigned int scroll;
 ///////////
 //Funciones
 ///////////

@@ -3,6 +3,7 @@
 #include "commons.h"
 #include "timers.h"
 #include "UART2_RS232.h"
+
 unsigned int flag_control=0;
 // Funcion para inicializar el modulo CN
 //==================
@@ -23,11 +24,15 @@ void inic_CN(){
 //==============================
 void _ISR_NO_PSV _CNInterrupt()
 {   
-    if (!PORTDbits.RD6){
-		T7CONbits.TON = !T7CONbits.TON; //Pulsador S3 para el crono   
+    if (!PORTDbits.RD6){ //S3
+		if(scroll!=7){
+            scroll++;
+        }  
 	}
-    if (!PORTDbits.RD7){
-        flag_reini_crono=1;             //Pulsador S6 reinicia el crono
+    if (!PORTDbits.RD7){ //S6
+        if(scroll!=0){
+            scroll--;
+        }
     }
     if(!PORTAbits.RA7){
         flag_control=!flag_control;     //Pulsador S5 cambia el control del servo mediante el teclado o el potenciometro 

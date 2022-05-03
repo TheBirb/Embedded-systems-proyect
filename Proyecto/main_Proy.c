@@ -23,6 +23,7 @@ int main(void) {
     inic_oscilator();
     inic_UART2();
     inic_PWM_duty();
+    inic_Timer2_PWM();
     inic_Timer7();
     inic_Timer3();
     inic_crono(&ms,&ds,&s,&min);
