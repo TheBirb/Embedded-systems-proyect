@@ -18,12 +18,11 @@
 
 int main(void) {
     
-    unsigned int m_poten, m_temp, m_joy_x, m_joy_y, m_joy_z;
+    unsigned int m_poten, m_temp, m_joy_x, m_joy_y, m_joy_z, m_mini_joy_x, m_mini_joy_y;
     unsigned int ms,ds,s,min;
     inic_oscilator();
     inic_UART2();
     inic_PWM_duty();
-    inic_Timer2_PWM();
     inic_Timer7();
     inic_Timer3();
     inic_crono(&ms,&ds,&s,&min);
@@ -45,12 +44,16 @@ int main(void) {
             m_joy_x=calcular_media(muestras_j_x);
             m_joy_y=calcular_media(muestras_j_y);
             m_joy_z=calcular_media(muestras_j_z);
+            m_mini_joy_x=calcular_media(muestras_mini_j_x);
+            m_mini_joy_y=calcular_media(muestras_mini_j_y);
             
             imprimir_decimal(&LCD_Pantalla[3][12], m_poten, 4);
             imprimir_decimal(&LCD_Pantalla[4][13], m_temp, 3);
             imprimir_decimal(&LCD_Pantalla[5][12], m_joy_x, 4);
             imprimir_decimal(&LCD_Pantalla[6][12], m_joy_y, 4);
             imprimir_decimal(&LCD_Pantalla[7][12], m_joy_z, 4);
+            imprimir_decimal(&LCD_Pantalla[8][12], m_mini_joy_x, 4);
+            imprimir_decimal(&LCD_Pantalla[9][12], m_mini_joy_y, 4);
             
             flag_media=0;
         }
