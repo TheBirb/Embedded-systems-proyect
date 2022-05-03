@@ -15,7 +15,7 @@ unsigned int indice=0;
 unsigned int fila_datos=0;
 unsigned int columna_datos=0;
 unsigned int final = 0;
-
+unsigned char dato_recibido=' ';
 
 
 void inic_UART2(){
@@ -54,6 +54,85 @@ void inic_UART2(){
 	U2STAbits.UTXEN=1;      // habilitar transmision tras habilitar modulo
 
 	Delay_us(T_1BIT_US); 	// Esperar tiempo de 1 bit 
+}
+
+void _ISR_NO_PSV _U2RXInterrupt(){
+    dato_recibido = U2RXREG;
+    switch(dato_recibido){
+        case 'i':                   //Pulsando la tecla i se reinicia el cronometro
+            T7CONbits.TON = 0;
+            flag_reini_crono=1;
+            break;
+        case 'o':                   //Pulsando la tecla o se pausa el cronómetro
+            if(T7CONbits.TON==1){
+                T7CONbits.TON=0;
+            }
+            break;
+        case 'p':                   //Pulsando la tecla p se continúa el cronometro
+            if(T7CONbits.TON==0){
+                T7CONbits.TON=1;
+            }
+            break;
+        case 'w':                   //Pulsando la tecla m se aumenta en 10 el valor del servomotor
+            if((duty0+100)<DUTY_MAX){    //Si no es el valor máximo se aumenta en 100, sino se pone al valor máximo
+                duty0+=100;
+            }else{
+                 duty0=DUTY_MAX;
+            }
+            break;
+        case 's':                   //Pulsando la tecla n se reduce en 10 el valor del servomotor
+            if((duty0-100)>DUTY_MIN){    //Si no es el valor mínimo se reduce en 100, sino se pone al valor mínimo
+                duty0-=100;
+            }else{
+                duty0=DUTY_MIN;
+            }
+            break;
+        case 'a':                   //Pulsando la tecla m se aumenta en 10 el valor del servomotor
+            if((duty1+100)<DUTY_MAX){    //Si no es el valor máximo se aumenta en 100, sino se pone al valor máximo
+                duty1+=100;
+            }else{
+                 duty1=DUTY_MAX;
+            }
+            break;
+        case 'd':                   //Pulsando la tecla n se reduce en 10 el valor del servomotor
+            if((duty1-100)>DUTY_MIN){    //Si no es el valor mínimo se reduce en 100, sino se pone al valor mínimo
+                duty1-=100;
+            }else{
+                duty1=DUTY_MIN;
+            }
+            break;
+        case 'r':                   //Pulsando la tecla m se aumenta en 10 el valor del servomotor
+            if((duty2+100)<DUTY_MAX){    //Si no es el valor máximo se aumenta en 100, sino se pone al valor máximo
+                duty2+=100;
+            }else{
+                 duty2=DUTY_MAX;
+            }
+            break;
+        case 'f':                   //Pulsando la tecla n se reduce en 10 el valor del servomotor
+            if((duty2-100)>DUTY_MIN){    //Si no es el valor mínimo se reduce en 100, sino se pone al valor mínimo
+                duty2-=100;
+            }else{
+                duty2=DUTY_MIN;
+            }
+            break;
+        case 'd':                   //Pulsando la tecla m se aumenta en 10 el valor del servomotor
+            if((duty3+100)<DUTY_MAX){    //Si no es el valor máximo se aumenta en 100, sino se pone al valor máximo
+                duty3+=100;
+            }else{
+                 duty3=DUTY_MAX;
+            }
+            break;
+        case 'g':                   //Pulsando la tecla n se reduce en 10 el valor del servomotor
+            if((duty3-100)>DUTY_MIN){    //Si no es el valor mínimo se reduce en 100, sino se pone al valor mínimo
+                duty0-=100;
+            }else{
+                duty3=DUTY_MIN;
+            }
+            break;
+        default:
+            break;
+    }
+    IFS1bits.U2RXIF=0;
 }
 
 void _ISR_NO_PSV _U2TXInterrupt(){
