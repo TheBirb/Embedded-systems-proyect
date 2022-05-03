@@ -6,6 +6,7 @@
  * Iker Fernández
  */
 
+extern unsigned int duty0,duty1,duty2,duty3;
 ///////////
 //Funciones
 ///////////
