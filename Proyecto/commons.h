@@ -56,9 +56,3 @@
 #define CR 0x0D		// carriage return (volver al principio)
 #define LF 0x0A		// line feed (salto de linea)
 
-
-////////////////////////////////////
-// Definiciones módulo OCPWM
-////////////////////////////////////
-#define DUTY_MAX 5500
-#define DUTY_MIN 1500

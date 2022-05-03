@@ -10,6 +10,7 @@ extern unsigned int duty0,duty1,duty2,duty3;
 ///////////
 //Funciones
 ///////////
+void inic_Timer2_PWM();
 void inic_Timer3();
 void inic_Timer5();
 void inic_Timer7();

@@ -14,7 +14,7 @@
 #include "utilidades.h"
 #include "UART2_RS232.h"
 #include "ADC1.h"
-
+#include "PWM.h"
 
 int main(void) {
     
@@ -22,6 +22,7 @@ int main(void) {
     unsigned int ms,ds,s,min;
     inic_oscilator();
     inic_UART2();
+    inic_PWM_duty();
     inic_Timer7();
     inic_Timer3();
     inic_crono(&ms,&ds,&s,&min);

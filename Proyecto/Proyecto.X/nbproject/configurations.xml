@@ -13,6 +13,9 @@
       <itemPath>../memoria.h</itemPath>
       <itemPath>../srf08.h</itemPath>
       <itemPath>../ADC1.h</itemPath>
+      <itemPath>../CN.h</itemPath>
+      <itemPath>../GPIO.h</itemPath>
+      <itemPath>../PWM.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -30,6 +33,9 @@
       <itemPath>../main_Proy.c</itemPath>
       <itemPath>../ADC1.c</itemPath>
       <itemPath>../i2c_funciones.c</itemPath>
+      <itemPath>../CN.c</itemPath>
+      <itemPath>../GPIO.c</itemPath>
+      <itemPath>../PWM.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
