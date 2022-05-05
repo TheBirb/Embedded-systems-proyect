@@ -3,18 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ehu/Downloads/Embedded-systems-proyect-main/Proyecto/UART2_RS232.c</file>
             <file>file:/C:/Users/ehu/Downloads/Embedded-systems-proyect-main/Proyecto/ADC1.c</file>
-            <file>file:/C:/Users/ehu/Downloads/Embedded-systems-proyect-main/Proyecto/memoria.c</file>
+            <file>file:/C:/Users/ehu/Downloads/Embedded-systems-proyect-main/Proyecto/UART2_RS232.c</file>
             <file>file:/C:/Users/ehu/Downloads/Embedded-systems-proyect-main/Proyecto/oscilator.c</file>
-            <file>file:/C:/Users/ehu/Downloads/Embedded-systems-proyect-main/Proyecto/ADC1.h</file>
+            <file>file:/C:/Users/ehu/Downloads/Embedded-systems-proyect-main/Proyecto/PWM.c</file>
             <file>file:/C:/Users/ehu/Downloads/Embedded-systems-proyect-main/Proyecto/timers.c</file>
-            <file>file:/C:/Users/ehu/Downloads/Embedded-systems-proyect-main/Proyecto/utilidades.h</file>
             <file>file:/C:/Users/ehu/Downloads/Embedded-systems-proyect-main/Proyecto/main_Proy.c</file>
             <file>file:/C:/Users/ehu/Downloads/Embedded-systems-proyect-main/Proyecto/UART2_RS232.h</file>
-            <file>file:/C:/Users/ehu/Downloads/Embedded-systems-proyect-main/Proyecto/LCD.c</file>
             <file>file:/C:/Users/ehu/Downloads/Embedded-systems-proyect-main/Proyecto/utilidades.c</file>
-            <file>file:/C:/Users/ehu/Downloads/Embedded-systems-proyect-main/Proyecto/timers.h</file>
         </group>
     </open-files>
 </project-private>

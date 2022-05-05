@@ -20,15 +20,12 @@ unsigned int estado_LCD=0;
 unsigned int L5=0;
 unsigned int Tac=0;
 unsigned int estadoPWM=0;
-unsigned int estadoT2;
 unsigned int scroll=0;
 ////////////////////
 //Inicializaciones
 ////////////////////
 void inic_Timer2_PWM ()
 {
-    duty0 = (DUTY_MAX+DUTY_MIN)/2;
-    estadoT2=1;
     TMR2 = 0 ; 	// Inicializar el registro de cuenta
     PR2 =  duty0-1;	// Periodo del temporizador
 		// Queremos que cuente 20 ms.
@@ -45,7 +42,7 @@ void inic_Timer2_PWM ()
     TRISDbits.TRISD1 = 0;
     TRISDbits.TRISD2 = 0;
     TRISDbits.TRISD3 = 0;
-    LATDbits.LATD0 = 1;
+    LATDbits.LATD0 = 0;
     LATDbits.LATD1 = 0;
     LATDbits.LATD2 = 0;
     LATDbits.LATD3 = 0;
@@ -227,46 +224,43 @@ void cronometro(unsigned int *mili,unsigned int *deci,unsigned int *seg,unsigned
 //////////////////
 //Interrupciones
 //////////////////
-void _ISR_NO_PSV _T2Interrupt(){
-    switch(estadoT2){               //El timer tendrá dos estados para controlar el pulso de comparación de los registros del servo mediante software
-        case 1:       
+void _ISR_NO_PSV _T2Interrupt(){   
             switch(estadoPWM){
                 case 0:
-                    LATDbits.LATD0 = 0;
-                    Tac = PR2;
-                    LATDbits.LATD1 = 1;
-                    PR2 = duty1;
+                    LATDbits.LATD0 = 1;
+                    PR2 = duty0;
+                    Tac=PR2;
                     estadoPWM++;
                     break;
                 case 1:
-                    LATDbits.LATD1 = 0;
-                    Tac = PR2;
-                    LATDbits.LATD2 = 1;
-                    PR2 = duty2;
+                    LATDbits.LATD0 = 0;
+                    LATDbits.LATD1 = 1;
+                    PR2 = duty1;
+                    Tac+=PR2;
                     estadoPWM++;
                     break;
                 case 2:
-                    LATDbits.LATD2 = 0;
-                    Tac = PR2;
-                    LATDbits.LATD3 = 1;
-                    PR2 = duty3;
+                    LATDbits.LATD1 = 0;
+                    LATDbits.LATD2 = 1;
+                    PR2 = duty2;
+                    Tac+=PR2;
                     estadoPWM++;
                     break;
                 case 3:
+                    LATDbits.LATD2 = 0;
+                    LATDbits.LATD3 = 1;
+                    PR2 = duty3;
+                    Tac+=PR2;
+                    estadoPWM++;
+                    break;
+                case 4:
                     LATDbits.LATD3 = 0;
-                    Tac = PR2;
-                    PR2 = 50000 - PR2 -1;
+                    PR2 = 50000 - Tac -1;
                     Tac=0;
                     estadoPWM=0;
-                    estadoT2 =0;
                     break;
             }
-            break;
-        case 0:
-            LATDbits.LATD0 = 1;
-            PR2 = duty0;
-            estadoT2=1;
-    }
+    IFS0bits.T2IF=0;
 }
 void _ISR_NO_PSV _T3Interrupt(){
     comienzo_muestreo();

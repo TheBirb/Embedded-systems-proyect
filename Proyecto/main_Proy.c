@@ -24,7 +24,7 @@ int main(void) {
     unsigned int ms,ds,s,min;
     inic_oscilator();
     inic_UART2();
-    inic_PWM_duty();
+    
     inic_Timer7();
     inic_Timer3();
     Init_LCD();
@@ -33,6 +33,7 @@ int main(void) {
     inic_CN();
     inic_crono(&ms,&ds,&s,&min);
     inic_ADC1();
+    
     unsigned char zeros[2];
     conversion_tiempo(zeros,0);
     LCD_Pantalla[1][8]=zeros[0];
@@ -42,7 +43,8 @@ int main(void) {
     LCD_Pantalla[1][14]=zeros[0];
     U2TXREG=0;
     comienzo_muestreo();
-    
+    inic_PWM_duty();
+    inic_Timer2_PWM();
     while(1){
         cronometro(&ms,&ds,&s,&min);
         if(flag_media==1){

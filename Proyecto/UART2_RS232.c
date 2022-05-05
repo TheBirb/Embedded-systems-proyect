@@ -1,4 +1,4 @@
-/*
+g/*
  * Módulo UART2
  * ==================
  * Autores:
@@ -10,6 +10,7 @@
 #include "timers.h"
 #include "memoria.h"
 #include "PWM.h"
+#include "UART2_RS232.h"
 unsigned int estado=0;
 unsigned int indice=0;
 unsigned int fila_datos=0;
@@ -124,7 +125,7 @@ void _ISR_NO_PSV _U2RXInterrupt(){
             break;
         case 'h':                   //Pulsando la tecla n se reduce en 10 el valor del servomotor
             if((duty3-100)>DUTY_MIN){    //Si no es el valor mínimo se reduce en 100, sino se pone al valor mínimo
-                duty0-=100;
+                duty3-=100;
             }else{
                 duty3=DUTY_MIN;
             }
