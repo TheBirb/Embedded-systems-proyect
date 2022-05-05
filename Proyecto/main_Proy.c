@@ -58,10 +58,10 @@ int main(void) {
             
             flag_media=0;
         }
-        imprimir_decimal(&LCD_Pantalla[11][12],duty0);
-        imprimir_decimal(&LCD_Pantalla[12][12],duty1);
-        imprimir_decimal(&LCD_Pantalla[13][12],duty2);
-        imprimir_decimal(&LCD_Pantalla[14][12],duty3);
+        imprimir_decimal(&LCD_Pantalla[11][12],duty0,4);
+        imprimir_decimal(&LCD_Pantalla[12][12],duty1,4);
+        imprimir_decimal(&LCD_Pantalla[13][12],duty2,4);
+        imprimir_decimal(&LCD_Pantalla[14][12],duty3,4);
        
     }
 }

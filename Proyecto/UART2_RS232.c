@@ -9,7 +9,7 @@
 #include "commons.h"
 #include "timers.h"
 #include "memoria.h"
-
+#include "PWM.h"
 unsigned int estado=0;
 unsigned int indice=0;
 unsigned int fila_datos=0;
@@ -61,7 +61,7 @@ void _ISR_NO_PSV _U2RXInterrupt(){
     switch(dato_recibido){
         case 'i':                   //Pulsando la tecla i se reinicia el cronometro
             T7CONbits.TON = 0;
-            flag_reini_crono=1;
+            //flag_reini_crono=1;
             break;
         case 'o':                   //Pulsando la tecla o se pausa el cronómetro
             if(T7CONbits.TON==1){
@@ -101,28 +101,28 @@ void _ISR_NO_PSV _U2RXInterrupt(){
                 duty1=DUTY_MIN;
             }
             break;
-        case 'r':                   //Pulsando la tecla m se aumenta en 10 el valor del servomotor
+        case 't':                   //Pulsando la tecla m se aumenta en 10 el valor del servomotor
             if((duty2+100)<DUTY_MAX){    //Si no es el valor máximo se aumenta en 100, sino se pone al valor máximo
                 duty2+=100;
             }else{
                  duty2=DUTY_MAX;
             }
             break;
-        case 'f':                   //Pulsando la tecla n se reduce en 10 el valor del servomotor
+        case 'g':                   //Pulsando la tecla n se reduce en 10 el valor del servomotor
             if((duty2-100)>DUTY_MIN){    //Si no es el valor mínimo se reduce en 100, sino se pone al valor mínimo
                 duty2-=100;
             }else{
                 duty2=DUTY_MIN;
             }
             break;
-        case 'd':                   //Pulsando la tecla m se aumenta en 10 el valor del servomotor
+        case 'f':                   //Pulsando la tecla m se aumenta en 10 el valor del servomotor
             if((duty3+100)<DUTY_MAX){    //Si no es el valor máximo se aumenta en 100, sino se pone al valor máximo
                 duty3+=100;
             }else{
                  duty3=DUTY_MAX;
             }
             break;
-        case 'g':                   //Pulsando la tecla n se reduce en 10 el valor del servomotor
+        case 'h':                   //Pulsando la tecla n se reduce en 10 el valor del servomotor
             if((duty3-100)>DUTY_MIN){    //Si no es el valor mínimo se reduce en 100, sino se pone al valor mínimo
                 duty0-=100;
             }else{
