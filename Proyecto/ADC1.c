@@ -16,6 +16,8 @@ unsigned int muestras_temp[8];
 unsigned int muestras_j_x[8];
 unsigned int muestras_j_y[8];
 unsigned int muestras_j_z[8];
+unsigned int muestras_mini_j_x[8];
+unsigned int muestras_mini_j_y[8];
 unsigned int flag_media=0;
 
 void inic_ADC1 (void)
@@ -79,6 +81,8 @@ AD1PCFGLbits.PCFG4=0;   // sensor temperatura
 AD1PCFGLbits.PCFG0=0;   // Joystic eje X (Tiene la entrada an. 0, pin RB0)
 AD1PCFGLbits.PCFG1=0;   // Joystic eje Y (Tiene la entrada an. 1, pin RB1)
 AD1PCFGLbits.PCFG2=0;   // Joystic eje Z (palanca) (Tiene la entrada an. 2, pin RB2)
+AD1PCFGLbits.PCFG8=0;   // Mini Joystic eje X (Tiene la entrada an. 8, pin RB8)
+AD1PCFGLbits.PCFG9=0;   // Mini Joystic eje Y (Tiene la entrada an. 9, pin RB9)
 
 // Bits y campos relacionados con las interrupciones
 IFS0bits.AD1IF=0;    
@@ -119,6 +123,14 @@ void _ISR_NO_PSV _ADC1Interrupt(){
                 break;
             case 5:
                 muestras_poten[n_muestras]=ADC1BUF0;
+                AD1CHS0bits.CH0SA=8;
+                break;
+            case 8:
+                muestras_mini_j_x[n_muestras]=ADC1BUF0;
+                AD1CHS0bits.CH0SA=9;
+                break;
+            case 9:
+                muestras_mini_j_y[n_muestras]=ADC1BUF0;
                 if (n_muestras!=7){   
                     n_muestras++;      //Aumentamos las muestras por cada interrupción del conversor
                 }else{
