@@ -36,6 +36,7 @@ int main(void) {
     LCD_Pantalla[1][14]=zeros[0];
     U2TXREG=0;
     comienzo_muestreo();
+    
     while(1){
         cronometro(&ms,&ds,&s,&min);
         if(flag_media==1){
@@ -57,6 +58,10 @@ int main(void) {
             
             flag_media=0;
         }
+        imprimir_decimal(&LCD_Pantalla[11][12],duty0);
+        imprimir_decimal(&LCD_Pantalla[12][12],duty1);
+        imprimir_decimal(&LCD_Pantalla[13][12],duty2);
+        imprimir_decimal(&LCD_Pantalla[14][12],duty3);
        
     }
 }
