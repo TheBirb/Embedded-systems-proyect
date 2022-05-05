@@ -15,6 +15,8 @@
 #include "UART2_RS232.h"
 #include "ADC1.h"
 #include "PWM.h"
+#include "CN.h"
+#include "GPIO.h"
 
 int main(void) {
     
@@ -25,6 +27,10 @@ int main(void) {
     inic_PWM_duty();
     inic_Timer7();
     inic_Timer3();
+    Init_LCD();
+    inic_pulsadores();
+    inic_Timer5();
+    inic_CN();
     inic_crono(&ms,&ds,&s,&min);
     inic_ADC1();
     unsigned char zeros[2];

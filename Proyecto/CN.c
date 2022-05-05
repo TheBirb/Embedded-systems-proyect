@@ -4,7 +4,7 @@
 #include "timers.h"
 #include "UART2_RS232.h"
 
-unsigned int flag_control=0;
+//unsigned int flag_control=0;
 // Funcion para inicializar el modulo CN
 //==================
 void inic_CN(){
@@ -25,18 +25,19 @@ void inic_CN(){
 void _ISR_NO_PSV _CNInterrupt()
 {   
     if (!PORTDbits.RD6){ //S3
-		if(scroll!=7){
-            scroll++;
+		if(scroll!=14){
+            scroll+=2;
         }  
 	}
     if (!PORTDbits.RD7){ //S6
         if(scroll!=0){
-            scroll--;
+            scroll-=2;
         }
     }
+    /*
     if(!PORTAbits.RA7){
         flag_control=!flag_control;     //Pulsador S5 cambia el control del servo mediante el teclado o el potenciometro 
-    }
+    }*/
     if(!PORTBbits.RB3){
         Nop();
     }
