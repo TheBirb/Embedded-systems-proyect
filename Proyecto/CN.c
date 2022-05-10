@@ -5,6 +5,7 @@
 #include "UART2_RS232.h"
 
 unsigned int flag_control=0;
+unsigned int pos_segura = 0;
 // Funcion para inicializar el modulo CN
 //==================
 void inic_CN(){
@@ -38,7 +39,8 @@ void _ISR_NO_PSV _CNInterrupt()
         flag_control=!flag_control;     //Pulsador S5 cambia el control del servo mediante el teclado o el potenciometro 
     }
     if(!PORTBbits.RB3){
-        T4CONbits.TON = 1;
+        inic_Timer4();
+        pos_segura=1;
     }
     Nop();
     Nop();

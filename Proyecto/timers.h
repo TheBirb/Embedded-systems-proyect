@@ -6,6 +6,7 @@
  * Iker Fernández
  */
 extern unsigned int scroll;
+extern unsigned int fin_programa;
 ///////////
 //Funciones
 ///////////

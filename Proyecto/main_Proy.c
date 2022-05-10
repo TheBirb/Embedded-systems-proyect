@@ -27,7 +27,6 @@ int main(void) {
     
     inic_Timer7();
     inic_Timer3();
-    inic_Timer4();
     Init_LCD();
     
     inic_pulsadores();
@@ -65,7 +64,7 @@ int main(void) {
             imprimir_decimal(&LCD_Pantalla[7][12], m_joy_z, 4);
             imprimir_decimal(&LCD_Pantalla[8][12], m_mini_joy_x, 4);
             imprimir_decimal(&LCD_Pantalla[9][12], m_mini_joy_y, 4);
-            if(flag_control==1){
+            if(flag_control==1 && pos_segura == 0){
                 if(m_joy_x<430){
                     if(duty0>1500){
                         duty0-=20;
@@ -105,14 +104,29 @@ int main(void) {
                         duty2=1500;
                     }
                 }
+                 if(m_mini_joy_x>500){
+                    if(duty4<6200){
+                        duty4+=40;
+                    }else{
+                        duty4=6200;
+                    }
+                }else if(m_mini_joy_x<480){
+                    if(duty4>3200){
+                        duty4-=40;
+                    }else{
+                        duty4=3200;
+                    }
+                }
                 duty3 = DUTY_MIN+(unsigned int)((float)m_joy_z*3.98);
             }
             flag_media=0;
+            
         }
         imprimir_decimal(&LCD_Pantalla[11][12],duty0,4);
         imprimir_decimal(&LCD_Pantalla[12][12],duty1,4);
         imprimir_decimal(&LCD_Pantalla[13][12],duty2,4);
         imprimir_decimal(&LCD_Pantalla[14][12],duty3,4);
         imprimir_decimal(&LCD_Pantalla[15][12],duty4,4);
+        if(fin_programa)break;
     }
 }

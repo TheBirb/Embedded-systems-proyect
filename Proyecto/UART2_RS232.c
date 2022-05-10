@@ -76,7 +76,7 @@ void _ISR_NO_PSV _U2RXInterrupt(){
             }
             break;
     }
-    if(flag_control==0){
+    if(flag_control==0 && pos_segura==0){
         switch(dato_recibido){
              
         case 'a':                   //Pulsando la tecla m se aumenta en 10 el valor del servomotor

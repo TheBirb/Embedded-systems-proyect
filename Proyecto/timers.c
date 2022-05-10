@@ -21,6 +21,8 @@ unsigned int L5=0;
 unsigned int Tac=0;
 unsigned int estadoPWM=0;
 unsigned int scroll=0;
+unsigned int estado_posicion_segura=0;
+unsigned int fin_programa=0;
 ////////////////////
 //Inicializaciones
 ////////////////////
@@ -61,8 +63,8 @@ void inic_Timer4 ()
 {
 
     TMR4 = 0 ; 	// Inicializar el registro de cuenta
-    PR4 =  50000-1;	// Periodo del temporizador
-		// Queremos que cuente 10 ms.
+    PR4 =  25000-1;	// Periodo del temporizador
+		// Queremos que cuente 20 ms.
 		// Fosc= 40 MHz (vease Inic_oscilator()) de modo que
 		// Fcy = 20 MHz (cada instruccion dos ciclos de reloj)
 		// Por tanto, Tcy= 50 ns para ejecutar una instruccion
@@ -72,7 +74,7 @@ void inic_Timer4 ()
     T4CONbits.TGATE = 0;	// Deshabilitar el modo Gate
     IEC1bits.T4IE =1;
     IFS1bits.T4IF =0;
-    T4CONbits.TON = 0;	// puesta en marcha del temporizado
+    T4CONbits.TON = 1;	// puesta en marcha del temporizado
 }
 void inic_Timer5 ()
 {
@@ -327,11 +329,12 @@ void _ISR_NO_PSV _T4Interrupt(){
             }else if (duty4<POS_SEG_4+10){
                 duty4 = duty4 + 10;
             }else{
-                estado_posicion_segura=0;
+                estado_posicion_segura=5;
             }
             break;
         case 5:
-            estado_posicion_segura=5;
+            estado_posicion_segura=0;
+            fin_programa=1;
             T4CONbits.TON = 0;
             break;            
     }
