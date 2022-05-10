@@ -27,6 +27,7 @@ int main(void) {
     
     inic_Timer7();
     inic_Timer3();
+    inic_Timer4();
     Init_LCD();
     
     inic_pulsadores();

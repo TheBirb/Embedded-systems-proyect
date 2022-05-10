@@ -38,7 +38,7 @@ void _ISR_NO_PSV _CNInterrupt()
         flag_control=!flag_control;     //Pulsador S5 cambia el control del servo mediante el teclado o el potenciometro 
     }
     if(!PORTBbits.RB3){
-        Nop();
+        T4CONbits.TON = 1;
     }
     Nop();
     Nop();

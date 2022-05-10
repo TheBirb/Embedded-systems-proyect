@@ -12,6 +12,7 @@ extern unsigned int scroll;
 void inic_Timer2_PWM();
 void inic_Timer3();
 void inic_Timer5();
+void inic_Timer4();
 void inic_Timer7();
 void inic_Timer9 ();
 void Delay_us(int time);

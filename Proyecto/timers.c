@@ -57,6 +57,23 @@ void inic_Timer3 ()
     IFS0bits.T3IF =0;
     T3CONbits.TON = 1;	// puesta en marcha del temporizado
 }
+void inic_Timer4 ()
+{
+
+    TMR4 = 0 ; 	// Inicializar el registro de cuenta
+    PR4 =  50000-1;	// Periodo del temporizador
+		// Queremos que cuente 10 ms.
+		// Fosc= 40 MHz (vease Inic_oscilator()) de modo que
+		// Fcy = 20 MHz (cada instruccion dos ciclos de reloj)
+		// Por tanto, Tcy= 50 ns para ejecutar una instruccion
+		// Para contar 0.5 ms se necesitan 10000 ciclos.
+    T4CONbits.TCKPS = 1;	// escala del prescaler 1:1
+    T4CONbits.TCS = 0;	// reloj interno
+    T4CONbits.TGATE = 0;	// Deshabilitar el modo Gate
+    IEC1bits.T4IE =1;
+    IFS1bits.T4IF =0;
+    T4CONbits.TON = 0;	// puesta en marcha del temporizado
+}
 void inic_Timer5 ()
 {
 
@@ -264,6 +281,62 @@ void _ISR_NO_PSV _T2Interrupt(){
 void _ISR_NO_PSV _T3Interrupt(){
     comienzo_muestreo();
     IFS0bits.T3IF = 0;
+}
+void _ISR_NO_PSV _T4Interrupt(){
+    
+    switch (estado_posicion_segura){
+        case 0:
+            if(duty0>POS_SEG_0+10){
+                duty0 = duty0 - 10;
+            }else if (duty0<POS_SEG_0+10){
+                duty0 = duty0 + 10;
+            }else{
+                estado_posicion_segura=1;
+            }
+            break;
+        case 1:
+            if(duty1>POS_SEG_1+10){
+                duty0 = duty0 - 10;
+            }else if (duty1<POS_SEG_1+10){
+                duty1 = duty1 + 10;
+            }else{
+                estado_posicion_segura=2;
+            }
+            break;
+        case 2:
+            if(duty2>POS_SEG_2+10){
+                duty2 = duty2 - 10;
+            }else if (duty2<POS_SEG_2+10){
+                duty2 = duty2 + 10;
+            }else{
+                estado_posicion_segura=3;
+            }
+            break;
+        case 3:
+            if(duty3>POS_SEG_3+10){
+                duty3 = duty3 - 10;
+            }else if (duty3<POS_SEG_3+10){
+                duty3 = duty3 + 10;
+            }else{
+                estado_posicion_segura=4;
+            }
+            break;
+        case 4:
+            if(duty4>POS_SEG_4+10){
+                duty4 = duty4 - 10;
+            }else if (duty4<POS_SEG_4+10){
+                duty4 = duty4 + 10;
+            }else{
+                estado_posicion_segura=0;
+            }
+            break;
+        case 5:
+            estado_posicion_segura=5;
+            T4CONbits.TON = 0;
+            break;            
+    }
+    IFS1bits.T4IF=0;
+    
 }
 void _ISR_NO_PSV _T5Interrupt(){
     
