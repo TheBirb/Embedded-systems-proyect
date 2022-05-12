@@ -36,6 +36,7 @@
       <itemPath>../CN.c</itemPath>
       <itemPath>../GPIO.c</itemPath>
       <itemPath>../PWM.c</itemPath>
+      <itemPath>../srf08.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -213,6 +214,9 @@
         <property key="relaxed-math" value="false"/>
         <property key="save-temps" value="false"/>
       </C30Global>
+      <RealICEPlatformTool>
+        <property key="firmware.download.all" value="false"/>
+      </RealICEPlatformTool>
     </conf>
   </confs>
 </configurationDescriptor>

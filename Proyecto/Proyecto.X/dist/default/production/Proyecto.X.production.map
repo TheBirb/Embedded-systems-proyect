@@ -85,29 +85,28 @@ xc16-ld 1.36 (B)
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x200               0x882           0xcc3  (3267)
-.const                       0xa82                 0x4             0x6  (6)
-.text                        0xa86               0x978           0xe34  (3636)
-.dinit                      0x13fe               0x116           0x1a1  (417)
-.text                       0x1514               0x1f0           0x2e8  (744)
+.text                        0x200               0x8d6           0xd41  (3393)
+.const                       0xad6                 0x4             0x6  (6)
+.text                        0xada               0x9aa           0xe7f  (3711)
+.dinit                      0x1484               0x11e           0x1ad  (429)
+.text                       0x15a2               0x1f0           0x2e8  (744)
 
-                 Total "program" memory used (bytes):         0x1f86  (8070) 3%
+                 Total "program" memory used (bytes):         0x205b  (8283) 3%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x4000]
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-.nbss                        0x800                   0            0x22  (34)
-.ndata                       0x822                   0             0xe  (14)
-.nbss                        0x830                   0            0x14  (20)
-.ndata                       0x844                   0             0x2  (2)
-.nbss                        0x846                   0             0x2  (2)
-.data                        0x848                   0           0x120  (288)
-.bss                         0x968                   0            0x70  (112)
-.data                        0x9d8                   0            0x10  (16)
+.nbss                        0x800                   0            0x24  (36)
+.ndata                       0x824                   0             0xe  (14)
+.nbss                        0x832                   0            0x18  (24)
+.ndata                       0x84a                   0             0x4  (4)
+.data                        0x84e                   0           0x120  (288)
+.bss                         0x96e                   0            0x70  (112)
+.data                        0x9de                   0            0x10  (16)
 
-                 Total "data" memory used (bytes):          0x1e8  (488) 2%
+                 Total "data" memory used (bytes):          0x1ee  (494) 3%
 
 
 Dynamic Memory Usage
@@ -115,244 +114,254 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                        0x9e8                              0x3e18  (15896)
+stack                        0x9ee                              0x3e12  (15890)
 
-                 Maximum dynamic memory (bytes):         0x3e18  (15896)
+                 Maximum dynamic memory (bytes):         0x3e12  (15890)
 
 
 External Symbols in Data Memory (by address):
 
-                    0x0800                  _n_muestras
-                    0x0802                  _flag_media
-                    0x0804                  _m_poten
-                    0x0806                  _m_temp
-                    0x0808                  _m_joy_x
-                    0x080a                  _m_joy_y
-                    0x080c                  _m_joy_z
-                    0x080e                  _m_mini_joy_x
-                    0x0810                  _m_mini_joy_y
-                    0x0812                  _flag_T9
-                    0x0814                  _flag_crono
-                    0x0816                  _estado_LCD
-                    0x0818                  _L5
-                    0x081a                  _Tac
-                    0x081c                  _estadoPWM
-                    0x081e                  _scroll
-                    0x0820                  _estado_posicion_segura
-                    0x0822                  _DUTY_MIN
-                    0x0824                  _DUTY_MAX
-                    0x0826                  _POS_SEG_0
-                    0x0828                  _POS_SEG_1
-                    0x082a                  _POS_SEG_2
-                    0x082c                  _POS_SEG_3
-                    0x082e                  _POS_SEG_4
-                    0x0830                  _estado
-                    0x0832                  _indice
-                    0x0834                  _fila_datos
-                    0x0836                  _columna_datos
-                    0x0838                  _final
-                    0x083a                  _duty0
-                    0x083c                  _duty1
-                    0x083e                  _duty2
-                    0x0840                  _duty3
-                    0x0842                  _duty4
-                    0x0844                  _dato_recibido
+                    0x0800                  _flag_T9
+                    0x0802                  _flag_crono
+                    0x0804                  _estado_LCD
+                    0x0806                  _L5
+                    0x0808                  _Tac
+                    0x080a                  _estadoPWM
+                    0x080c                  _scroll
+                    0x080e                  _estado_posicion_segura
+                    0x0810                  _fin_programa
+                    0x0812                  _n_muestras
+                    0x0814                  _flag_media
+                    0x0816                  _m_poten
+                    0x0818                  _m_temp
+                    0x081a                  _m_joy_x
+                    0x081c                  _m_joy_y
+                    0x081e                  _m_joy_z
+                    0x0820                  _m_mini_joy_x
+                    0x0822                  _m_mini_joy_y
+                    0x0824                  _DUTY_MIN
+                    0x0826                  _DUTY_MAX
+                    0x0828                  _POS_SEG_0
+                    0x082a                  _POS_SEG_1
+                    0x082c                  _POS_SEG_2
+                    0x082e                  _POS_SEG_3
+                    0x0830                  _POS_SEG_4
+                    0x0832                  _estado
+                    0x0834                  _indice
+                    0x0836                  _fila_datos
+                    0x0838                  _columna_datos
+                    0x083a                  _final
+                    0x083c                  _duty0
+                    0x083e                  _duty1
+                    0x0840                  _duty2
+                    0x0842                  _duty3
+                    0x0844                  _duty4
                     0x0846                  _flag_control
-                    0x0848                  _LCD_Pantalla
-                    0x0968                  _muestras_poten
-                    0x0978                  _muestras_temp
-                    0x0988                  _muestras_j_x
-                    0x0998                  _muestras_j_y
-                    0x09a8                  _muestras_j_z
-                    0x09b8                  _muestras_mini_j_x
-                    0x09c8                  _muestras_mini_j_y
-                    0x09d8                  _tabla_carac
+                    0x0848                  _pos_segura
+                    0x084a                  _objetivo
+                    0x084c                  _dato_recibido
+                    0x084e                  _LCD_Pantalla
+                    0x096e                  _muestras_poten
+                    0x097e                  _muestras_temp
+                    0x098e                  _muestras_j_x
+                    0x099e                  _muestras_j_y
+                    0x09ae                  _muestras_j_z
+                    0x09be                  _muestras_mini_j_x
+                    0x09ce                  _muestras_mini_j_y
+                    0x09de                  _tabla_carac
 
 External Symbols in Data Memory (by name):
 
-                    0x0824                  _DUTY_MAX
-                    0x0822                  _DUTY_MIN
-                    0x0818                  _L5
-                    0x0848                  _LCD_Pantalla
-                    0x0826                  _POS_SEG_0
-                    0x0828                  _POS_SEG_1
-                    0x082a                  _POS_SEG_2
-                    0x082c                  _POS_SEG_3
-                    0x082e                  _POS_SEG_4
-                    0x081a                  _Tac
-                    0x0836                  _columna_datos
-                    0x0844                  _dato_recibido
-                    0x083a                  _duty0
-                    0x083c                  _duty1
-                    0x083e                  _duty2
-                    0x0840                  _duty3
-                    0x0842                  _duty4
-                    0x0830                  _estado
-                    0x081c                  _estadoPWM
-                    0x0816                  _estado_LCD
-                    0x0820                  _estado_posicion_segura
-                    0x0834                  _fila_datos
-                    0x0838                  _final
-                    0x0812                  _flag_T9
+                    0x0826                  _DUTY_MAX
+                    0x0824                  _DUTY_MIN
+                    0x0806                  _L5
+                    0x084e                  _LCD_Pantalla
+                    0x0828                  _POS_SEG_0
+                    0x082a                  _POS_SEG_1
+                    0x082c                  _POS_SEG_2
+                    0x082e                  _POS_SEG_3
+                    0x0830                  _POS_SEG_4
+                    0x0808                  _Tac
+                    0x0838                  _columna_datos
+                    0x084c                  _dato_recibido
+                    0x083c                  _duty0
+                    0x083e                  _duty1
+                    0x0840                  _duty2
+                    0x0842                  _duty3
+                    0x0844                  _duty4
+                    0x0832                  _estado
+                    0x080a                  _estadoPWM
+                    0x0804                  _estado_LCD
+                    0x080e                  _estado_posicion_segura
+                    0x0836                  _fila_datos
+                    0x0810                  _fin_programa
+                    0x083a                  _final
+                    0x0800                  _flag_T9
                     0x0846                  _flag_control
-                    0x0814                  _flag_crono
-                    0x0802                  _flag_media
-                    0x0832                  _indice
-                    0x0808                  _m_joy_x
-                    0x080a                  _m_joy_y
-                    0x080c                  _m_joy_z
-                    0x080e                  _m_mini_joy_x
-                    0x0810                  _m_mini_joy_y
-                    0x0804                  _m_poten
-                    0x0806                  _m_temp
-                    0x0988                  _muestras_j_x
-                    0x0998                  _muestras_j_y
-                    0x09a8                  _muestras_j_z
-                    0x09b8                  _muestras_mini_j_x
-                    0x09c8                  _muestras_mini_j_y
-                    0x0968                  _muestras_poten
-                    0x0978                  _muestras_temp
-                    0x0800                  _n_muestras
-                    0x081e                  _scroll
-                    0x09d8                  _tabla_carac
+                    0x0802                  _flag_crono
+                    0x0814                  _flag_media
+                    0x0834                  _indice
+                    0x081a                  _m_joy_x
+                    0x081c                  _m_joy_y
+                    0x081e                  _m_joy_z
+                    0x0820                  _m_mini_joy_x
+                    0x0822                  _m_mini_joy_y
+                    0x0816                  _m_poten
+                    0x0818                  _m_temp
+                    0x098e                  _muestras_j_x
+                    0x099e                  _muestras_j_y
+                    0x09ae                  _muestras_j_z
+                    0x09be                  _muestras_mini_j_x
+                    0x09ce                  _muestras_mini_j_y
+                    0x096e                  _muestras_poten
+                    0x097e                  _muestras_temp
+                    0x0812                  _n_muestras
+                    0x084a                  _objetivo
+                    0x0848                  _pos_segura
+                    0x080c                  _scroll
+                    0x09de                  _tabla_carac
 
 External Symbols in Program Memory (by address):
 
                   0x000200                  __resetPRI
                   0x00023c                  __psv_init
-                  0x000252                  __data_init_standard
                   0x000252                  __data_init
-                  0x0002c8                  __T2Interrupt
-                  0x00037c                  __T3Interrupt
-                  0x00039a                  __T4Interrupt
-                  0x0004a0                  __T5Interrupt
-                  0x000538                  __T7Interrupt
-                  0x000548                  __T9Interrupt
-                  0x00055a                  __U2RXInterrupt
-                  0x000708                  __U2TXInterrupt
-                  0x00077e                  __ADC1Interrupt
-                  0x00087a                  __CNInterrupt
-                  0x0008d6                  __DefaultInterrupt
-                  0x0008dc                  ___fixunssfsi
-                  0x000912                  ___floatunsisf
-                  0x000916                  __funpack
-                  0x000940                  ___mulsf3
-                  0x0009a8                  ___floatundisf
-                  0x000a06                  __fpack
-                  0x000a52                  __funpack2
-                  0x000a62                  __fPropagateNaN
-                  0x000a74                  __fbopExit
-                  0x000a7c                  __fbopReturnNaN
-                  0x000a86                  _InitI2C_1
-                  0x000a96                  _StartI2C_1
-                  0x000ac4                  _RestartI2C_1
-                  0x000af2                  _StopI2C_1
-                  0x000b20                  _IdleI2C_1
-                  0x000b4e                  _WriteI2C_1
-                  0x000b82                  _ACKCheck_1
-                  0x000bbe                  _NotAckI2C_1
-                  0x000bee                  _AckI2C_1
-                  0x000c1e                  _getI2C_1
-                  0x000c66                  _getsI2C_1
-                  0x000ca6                  _LDByteReadI2C_1
-                  0x000d40                  _LDByteWriteI2C_1
-                  0x000db4                  _inic_Timer2_PWM
-                  0x000dd6                  _inic_Timer3
-                  0x000df4                  _inic_Timer4
-                  0x000e14                  _inic_Timer5
-                  0x000e32                  _inic_Timer7
-                  0x000e52                  _inic_Timer9
-                  0x000e82                  _Delay_us
-                  0x000ebe                  _Delay_ms
-                  0x000f10                  _inic_crono
-                  0x000f36                  _reinic_crono
-                  0x000f62                  _cronometro
-                  0x001094                  _main
-                  0x0012a6                  _conversion_tiempo
-                  0x0012ee                  _imprimir_decimal
-                  0x001338                  _dec_a_hex
-                  0x0013a2                  _calcular_distancia
-                  0x0013c8                  _calcular_media
-                  0x001514                  _lcd_cmd
-                  0x001540                  _lcd_data
-                  0x00156e                  _Init_LCD
-                  0x0015c4                  _inic_ADC1
-                  0x001612                  _comienzo_muestreo
-                  0x00161a                  _inic_oscilator
-                  0x00166c                  _inic_UART2
-                  0x00169a                  _inic_PWM_servos
-                  0x0016c8                  _inic_leds
-                  0x0016de                  _inic_pulsadores
-                  0x0016f2                  _inic_CN
+                  0x000252                  __data_init_standard
+                  0x0002c8                  __T1Interrupt
+                  0x0002fe                  __T2Interrupt
+                  0x0003b2                  __T3Interrupt
+                  0x0003d0                  __T4Interrupt
+                  0x0004da                  __T5Interrupt
+                  0x000572                  __T7Interrupt
+                  0x000582                  __T9Interrupt
+                  0x000594                  __U2RXInterrupt
+                  0x000748                  __U2TXInterrupt
+                  0x0007be                  __ADC1Interrupt
+                  0x0008ba                  __CNInterrupt
+                  0x00092a                  __DefaultInterrupt
+                  0x000930                  ___fixunssfsi
+                  0x000966                  ___floatunsisf
+                  0x00096a                  __funpack
+                  0x000994                  ___mulsf3
+                  0x0009fc                  ___floatundisf
+                  0x000a5a                  __fpack
+                  0x000aa6                  __funpack2
+                  0x000ab6                  __fPropagateNaN
+                  0x000ac8                  __fbopExit
+                  0x000ad0                  __fbopReturnNaN
+                  0x000ada                  _InitI2C_1
+                  0x000aea                  _StartI2C_1
+                  0x000b18                  _RestartI2C_1
+                  0x000b46                  _StopI2C_1
+                  0x000b74                  _IdleI2C_1
+                  0x000ba2                  _WriteI2C_1
+                  0x000bd6                  _ACKCheck_1
+                  0x000c12                  _NotAckI2C_1
+                  0x000c42                  _AckI2C_1
+                  0x000c72                  _getI2C_1
+                  0x000cba                  _getsI2C_1
+                  0x000cfa                  _LDByteReadI2C_1
+                  0x000d94                  _LDByteWriteI2C_1
+                  0x000e08                  _inic_Timer1
+                  0x000e28                  _inic_Timer2_PWM
+                  0x000e4a                  _inic_Timer3
+                  0x000e68                  _inic_Timer4
+                  0x000e88                  _inic_Timer5
+                  0x000ea6                  _inic_Timer7
+                  0x000ec6                  _inic_Timer9
+                  0x000ef6                  _Delay_us
+                  0x000f32                  _Delay_ms
+                  0x000f84                  _inic_crono
+                  0x000faa                  _reinic_crono
+                  0x000fd6                  _cronometro
+                  0x001108                  _main
+                  0x00132c                  _conversion_tiempo
+                  0x001374                  _imprimir_decimal
+                  0x0013be                  _dec_a_hex
+                  0x001428                  _calcular_distancia
+                  0x00144e                  _calcular_media
+                  0x0015a2                  _lcd_cmd
+                  0x0015ce                  _lcd_data
+                  0x0015fc                  _Init_LCD
+                  0x001652                  _inic_ADC1
+                  0x0016a0                  _comienzo_muestreo
+                  0x0016a8                  _inic_oscilator
+                  0x0016fa                  _inic_UART2
+                  0x001728                  _inic_PWM_servos
+                  0x001756                  _inic_leds
+                  0x00176c                  _inic_pulsadores
+                  0x001780                  _inic_CN
 
 External Symbols in Program Memory (by name):
 
-                  0x000b82                  _ACKCheck_1
-                  0x000bee                  _AckI2C_1
-                  0x000ebe                  _Delay_ms
-                  0x000e82                  _Delay_us
-                  0x000b20                  _IdleI2C_1
-                  0x000a86                  _InitI2C_1
-                  0x00156e                  _Init_LCD
-                  0x000ca6                  _LDByteReadI2C_1
-                  0x000d40                  _LDByteWriteI2C_1
-                  0x000bbe                  _NotAckI2C_1
-                  0x000ac4                  _RestartI2C_1
-                  0x000a96                  _StartI2C_1
-                  0x000af2                  _StopI2C_1
-                  0x000b4e                  _WriteI2C_1
-                  0x00077e                  __ADC1Interrupt
-                  0x00087a                  __CNInterrupt
-                  0x0008d6                  __DefaultInterrupt
-                  0x0002c8                  __T2Interrupt
-                  0x00037c                  __T3Interrupt
-                  0x00039a                  __T4Interrupt
-                  0x0004a0                  __T5Interrupt
-                  0x000538                  __T7Interrupt
-                  0x000548                  __T9Interrupt
-                  0x00055a                  __U2RXInterrupt
-                  0x000708                  __U2TXInterrupt
-                  0x0008dc                  ___fixunssfsi
-                  0x0009a8                  ___floatundisf
-                  0x000912                  ___floatunsisf
-                  0x000940                  ___mulsf3
+                  0x000bd6                  _ACKCheck_1
+                  0x000c42                  _AckI2C_1
+                  0x000f32                  _Delay_ms
+                  0x000ef6                  _Delay_us
+                  0x000b74                  _IdleI2C_1
+                  0x000ada                  _InitI2C_1
+                  0x0015fc                  _Init_LCD
+                  0x000cfa                  _LDByteReadI2C_1
+                  0x000d94                  _LDByteWriteI2C_1
+                  0x000c12                  _NotAckI2C_1
+                  0x000b18                  _RestartI2C_1
+                  0x000aea                  _StartI2C_1
+                  0x000b46                  _StopI2C_1
+                  0x000ba2                  _WriteI2C_1
+                  0x0007be                  __ADC1Interrupt
+                  0x0008ba                  __CNInterrupt
+                  0x00092a                  __DefaultInterrupt
+                  0x0002c8                  __T1Interrupt
+                  0x0002fe                  __T2Interrupt
+                  0x0003b2                  __T3Interrupt
+                  0x0003d0                  __T4Interrupt
+                  0x0004da                  __T5Interrupt
+                  0x000572                  __T7Interrupt
+                  0x000582                  __T9Interrupt
+                  0x000594                  __U2RXInterrupt
+                  0x000748                  __U2TXInterrupt
+                  0x000930                  ___fixunssfsi
+                  0x0009fc                  ___floatundisf
+                  0x000966                  ___floatunsisf
+                  0x000994                  ___mulsf3
                   0x000252                  __data_init
                   0x000252                  __data_init_standard
-                  0x000a62                  __fPropagateNaN
-                  0x000a74                  __fbopExit
-                  0x000a7c                  __fbopReturnNaN
-                  0x000a06                  __fpack
-                  0x000916                  __funpack
-                  0x000a52                  __funpack2
+                  0x000ab6                  __fPropagateNaN
+                  0x000ac8                  __fbopExit
+                  0x000ad0                  __fbopReturnNaN
+                  0x000a5a                  __fpack
+                  0x00096a                  __funpack
+                  0x000aa6                  __funpack2
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x0013a2                  _calcular_distancia
-                  0x0013c8                  _calcular_media
-                  0x001612                  _comienzo_muestreo
-                  0x0012a6                  _conversion_tiempo
-                  0x000f62                  _cronometro
-                  0x001338                  _dec_a_hex
-                  0x000c1e                  _getI2C_1
-                  0x000c66                  _getsI2C_1
-                  0x0012ee                  _imprimir_decimal
-                  0x0015c4                  _inic_ADC1
-                  0x0016f2                  _inic_CN
-                  0x00169a                  _inic_PWM_servos
-                  0x000db4                  _inic_Timer2_PWM
-                  0x000dd6                  _inic_Timer3
-                  0x000df4                  _inic_Timer4
-                  0x000e14                  _inic_Timer5
-                  0x000e32                  _inic_Timer7
-                  0x000e52                  _inic_Timer9
-                  0x00166c                  _inic_UART2
-                  0x000f10                  _inic_crono
-                  0x0016c8                  _inic_leds
-                  0x00161a                  _inic_oscilator
-                  0x0016de                  _inic_pulsadores
-                  0x001514                  _lcd_cmd
-                  0x001540                  _lcd_data
-                  0x001094                  _main
-                  0x000f36                  _reinic_crono
+                  0x001428                  _calcular_distancia
+                  0x00144e                  _calcular_media
+                  0x0016a0                  _comienzo_muestreo
+                  0x00132c                  _conversion_tiempo
+                  0x000fd6                  _cronometro
+                  0x0013be                  _dec_a_hex
+                  0x000c72                  _getI2C_1
+                  0x000cba                  _getsI2C_1
+                  0x001374                  _imprimir_decimal
+                  0x001652                  _inic_ADC1
+                  0x001780                  _inic_CN
+                  0x001728                  _inic_PWM_servos
+                  0x000e08                  _inic_Timer1
+                  0x000e28                  _inic_Timer2_PWM
+                  0x000e4a                  _inic_Timer3
+                  0x000e68                  _inic_Timer4
+                  0x000e88                  _inic_Timer5
+                  0x000ea6                  _inic_Timer7
+                  0x000ec6                  _inic_Timer9
+                  0x0016fa                  _inic_UART2
+                  0x000f84                  _inic_crono
+                  0x001756                  _inic_leds
+                  0x0016a8                  _inic_oscilator
+                  0x00176c                  _inic_pulsadores
+                  0x0015a2                  _lcd_cmd
+                  0x0015ce                  _lcd_data
+                  0x001108                  _main
+                  0x000faa                  _reinic_crono
 
 Memory Configuration
 
@@ -421,7 +430,7 @@ LOAD c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libfx-elf.a
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000200        0x882
+.text             0x000200        0x8d6
  *(.init)
  .init            0x000200         0x4c c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
                   0x000200                  __resetPRI
@@ -433,57 +442,58 @@ LOAD c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libfx-elf.a
  *(.user_init)
  *(.handle)
  *(.isr*)
- .isr.text        0x0002c8        0x292 build/default/production/_ext/1472/timers.o
-                  0x0002c8                  __T2Interrupt
-                  0x00037c                  __T3Interrupt
-                  0x00039a                  __T4Interrupt
-                  0x0004a0                  __T5Interrupt
-                  0x000538                  __T7Interrupt
-                  0x000548                  __T9Interrupt
- .isr.text        0x00055a        0x224 build/default/production/_ext/1472/UART2_RS232.o
-                  0x00055a                  __U2RXInterrupt
-                  0x000708                  __U2TXInterrupt
- .isr.text        0x00077e         0xfc build/default/production/_ext/1472/ADC1.o
-                  0x00077e                  __ADC1Interrupt
- .isr.text        0x00087a         0x5c build/default/production/_ext/1472/CN.o
-                  0x00087a                  __CNInterrupt
- .isr             0x0008d6          0x4 default_isr
-                  0x0008d6                  __DefaultInterrupt
+ .isr.text        0x0002c8        0x2cc build/default/production/_ext/1472/timers.o
+                  0x0002c8                  __T1Interrupt
+                  0x0002fe                  __T2Interrupt
+                  0x0003b2                  __T3Interrupt
+                  0x0003d0                  __T4Interrupt
+                  0x0004da                  __T5Interrupt
+                  0x000572                  __T7Interrupt
+                  0x000582                  __T9Interrupt
+ .isr.text        0x000594        0x22a build/default/production/_ext/1472/UART2_RS232.o
+                  0x000594                  __U2RXInterrupt
+                  0x000748                  __U2TXInterrupt
+ .isr.text        0x0007be         0xfc build/default/production/_ext/1472/ADC1.o
+                  0x0007be                  __ADC1Interrupt
+ .isr.text        0x0008ba         0x70 build/default/production/_ext/1472/CN.o
+                  0x0008ba                  __CNInterrupt
+ .isr             0x00092a          0x4 default_isr
+                  0x00092a                  __DefaultInterrupt
  *(.libc)
  *(.libm)
  *(.libdsp)
  *(.lib*)
  .libpic30_crt_start_mode
-                  0x0008da          0x2 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\liblega-pic30-elf.a(crt_start_mode_normal.Leo)
-                  0x0008da                  __crt_start_mode
-                  0x0008da                  __crt_start_mode_normal
+                  0x00092e          0x2 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\liblega-pic30-elf.a(crt_start_mode_normal.Leo)
+                  0x00092e                  __crt_start_mode
+                  0x00092e                  __crt_start_mode_normal
  .libm.fixunssfsi
-                  0x0008dc         0x36 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(fixunssfsi.eo)
-                  0x0008dc                  ___fixunssfsi
+                  0x000930         0x36 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(fixunssfsi.eo)
+                  0x000930                  ___fixunssfsi
  .libm.floatunsisf
-                  0x000912          0x4 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(floatunsisf.eo)
-                  0x000912                  ___floatunsisf
- .libm.funpack    0x000916         0x2a c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(funpack.eo)
-                  0x000916                  __funpack
- .libm.mulsf3     0x000940         0x68 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(mulsf3.eo)
-                  0x000940                  ___mulsf3
+                  0x000966          0x4 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(floatunsisf.eo)
+                  0x000966                  ___floatunsisf
+ .libm.funpack    0x00096a         0x2a c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(funpack.eo)
+                  0x00096a                  __funpack
+ .libm.mulsf3     0x000994         0x68 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(mulsf3.eo)
+                  0x000994                  ___mulsf3
  .libm.floatundisf
-                  0x0009a8         0x5e c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(floatundisf.eo)
-                  0x0009a8                  ___floatundisf
- .libm.fpack      0x000a06         0x4c c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(fpack.eo)
-                  0x000a06                  __fpack
+                  0x0009fc         0x5e c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(floatundisf.eo)
+                  0x0009fc                  ___floatundisf
+ .libm.fpack      0x000a5a         0x4c c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(fpack.eo)
+                  0x000a5a                  __fpack
  .libm.funpack2
-                  0x000a52         0x10 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(funpack2.eo)
-                  0x000a52                  __funpack2
+                  0x000aa6         0x10 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(funpack2.eo)
+                  0x000aa6                  __funpack2
  .libm.fPropagateNaN
-                  0x000a62         0x12 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(futil.eo)
-                  0x000a62                  __fPropagateNaN
+                  0x000ab6         0x12 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(futil.eo)
+                  0x000ab6                  __fPropagateNaN
  .libm.fbobExit
-                  0x000a74          0x8 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(futil.eo)
-                  0x000a74                  __fbopExit
+                  0x000ac8          0x8 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(futil.eo)
+                  0x000ac8                  __fbopExit
  .libm.fbopReturnNaN
-                  0x000a7c          0x6 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(futil.eo)
-                  0x000a7c                  __fbopReturnNaN
+                  0x000ad0          0x6 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(futil.eo)
+                  0x000ad0                  __fbopReturnNaN
 
 usercode
  *(usercode)
@@ -527,20 +537,20 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x723b
+.debug_info       0x000000       0x7366
  *(.debug_info)
  .debug_info      0x000000        0x633 build/default/production/_ext/1472/oscilator.o
- .debug_info      0x000633       0x1b1c build/default/production/_ext/1472/timers.o
- .debug_info      0x00214f        0xcde build/default/production/_ext/1472/UART2_RS232.o
- .debug_info      0x002e2d        0x853 build/default/production/_ext/1472/LCD.o
- .debug_info      0x003680        0x361 build/default/production/_ext/1472/utilidades.o
- .debug_info      0x0039e1        0x164 build/default/production/_ext/1472/memoria.o
- .debug_info      0x003b45        0x495 build/default/production/_ext/1472/main_Proy.o
- .debug_info      0x003fda        0xe49 build/default/production/_ext/1472/ADC1.o
- .debug_info      0x004e23        0x7b1 build/default/production/_ext/1472/i2c_funciones.o
- .debug_info      0x0055d4        0xccf build/default/production/_ext/1472/CN.o
- .debug_info      0x0062a3        0x68a build/default/production/_ext/1472/GPIO.o
- .debug_info      0x00692d        0x90e build/default/production/_ext/1472/PWM.o
+ .debug_info      0x000633       0x1cd6 build/default/production/_ext/1472/timers.o
+ .debug_info      0x002309        0xcf8 build/default/production/_ext/1472/UART2_RS232.o
+ .debug_info      0x003001        0x853 build/default/production/_ext/1472/LCD.o
+ .debug_info      0x003854        0x361 build/default/production/_ext/1472/utilidades.o
+ .debug_info      0x003bb5        0x164 build/default/production/_ext/1472/memoria.o
+ .debug_info      0x003d19        0x4e3 build/default/production/_ext/1472/main_Proy.o
+ .debug_info      0x0041fc        0xe49 build/default/production/_ext/1472/ADC1.o
+ .debug_info      0x005045        0x7b1 build/default/production/_ext/1472/i2c_funciones.o
+ .debug_info      0x0057f6        0xbd8 build/default/production/_ext/1472/CN.o
+ .debug_info      0x0063ce        0x68a build/default/production/_ext/1472/GPIO.o
+ .debug_info      0x006a58        0x90e build/default/production/_ext/1472/PWM.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0xa74
@@ -558,48 +568,48 @@ __FUID3
  .debug_abbrev    0x000931         0x99 build/default/production/_ext/1472/GPIO.o
  .debug_abbrev    0x0009ca         0xaa build/default/production/_ext/1472/PWM.o
 
-.debug_line       0x000000        0xda7
+.debug_line       0x000000        0xdd2
  *(.debug_line)
  .debug_line      0x000000         0xf8 build/default/production/_ext/1472/oscilator.o
- .debug_line      0x0000f8        0x22e build/default/production/_ext/1472/timers.o
- .debug_line      0x000326        0x190 build/default/production/_ext/1472/UART2_RS232.o
- .debug_line      0x0004b6        0x11d build/default/production/_ext/1472/LCD.o
- .debug_line      0x0005d3         0x74 build/default/production/_ext/1472/utilidades.o
- .debug_line      0x000647         0x2a build/default/production/_ext/1472/memoria.o
- .debug_line      0x000671        0x173 build/default/production/_ext/1472/main_Proy.o
- .debug_line      0x0007e4        0x145 build/default/production/_ext/1472/ADC1.o
- .debug_line      0x000929        0x173 build/default/production/_ext/1472/i2c_funciones.o
- .debug_line      0x000a9c        0x11b build/default/production/_ext/1472/CN.o
- .debug_line      0x000bb7         0xf7 build/default/production/_ext/1472/GPIO.o
- .debug_line      0x000cae         0xf9 build/default/production/_ext/1472/PWM.o
+ .debug_line      0x0000f8        0x241 build/default/production/_ext/1472/timers.o
+ .debug_line      0x000339        0x190 build/default/production/_ext/1472/UART2_RS232.o
+ .debug_line      0x0004c9        0x11d build/default/production/_ext/1472/LCD.o
+ .debug_line      0x0005e6         0x74 build/default/production/_ext/1472/utilidades.o
+ .debug_line      0x00065a         0x2a build/default/production/_ext/1472/memoria.o
+ .debug_line      0x000684        0x18a build/default/production/_ext/1472/main_Proy.o
+ .debug_line      0x00080e        0x145 build/default/production/_ext/1472/ADC1.o
+ .debug_line      0x000953        0x173 build/default/production/_ext/1472/i2c_funciones.o
+ .debug_line      0x000ac6        0x11c build/default/production/_ext/1472/CN.o
+ .debug_line      0x000be2         0xf7 build/default/production/_ext/1472/GPIO.o
+ .debug_line      0x000cd9         0xf9 build/default/production/_ext/1472/PWM.o
 
-.debug_frame      0x000000        0x716
+.debug_frame      0x000000        0x772
  *(.debug_frame)
  .debug_frame     0x000000         0x30 build/default/production/_ext/1472/oscilator.o
- .debug_frame     0x000030        0x258 build/default/production/_ext/1472/timers.o
- .debug_frame     0x000288         0x8c build/default/production/_ext/1472/UART2_RS232.o
- .debug_frame     0x000314         0x68 build/default/production/_ext/1472/LCD.o
- .debug_frame     0x00037c         0xa0 build/default/production/_ext/1472/utilidades.o
- .debug_frame     0x00041c         0x30 build/default/production/_ext/1472/main_Proy.o
- .debug_frame     0x00044c         0x7a build/default/production/_ext/1472/ADC1.o
- .debug_frame     0x0004c6        0x180 build/default/production/_ext/1472/i2c_funciones.o
- .debug_frame     0x000646         0x54 build/default/production/_ext/1472/CN.o
- .debug_frame     0x00069a         0x4c build/default/production/_ext/1472/GPIO.o
- .debug_frame     0x0006e6         0x30 build/default/production/_ext/1472/PWM.o
+ .debug_frame     0x000030        0x298 build/default/production/_ext/1472/timers.o
+ .debug_frame     0x0002c8         0x8c build/default/production/_ext/1472/UART2_RS232.o
+ .debug_frame     0x000354         0x68 build/default/production/_ext/1472/LCD.o
+ .debug_frame     0x0003bc         0xa0 build/default/production/_ext/1472/utilidades.o
+ .debug_frame     0x00045c         0x30 build/default/production/_ext/1472/main_Proy.o
+ .debug_frame     0x00048c         0x7a build/default/production/_ext/1472/ADC1.o
+ .debug_frame     0x000506        0x180 build/default/production/_ext/1472/i2c_funciones.o
+ .debug_frame     0x000686         0x70 build/default/production/_ext/1472/CN.o
+ .debug_frame     0x0006f6         0x4c build/default/production/_ext/1472/GPIO.o
+ .debug_frame     0x000742         0x30 build/default/production/_ext/1472/PWM.o
 
-.debug_str        0x000000        0x48f
+.debug_str        0x000000        0x4dc
  *(.debug_str)
  .debug_str       0x000000         0x1f build/default/production/_ext/1472/oscilator.o
- .debug_str       0x00001f        0x12a build/default/production/_ext/1472/timers.o
- .debug_str       0x000149         0x8d build/default/production/_ext/1472/UART2_RS232.o
- .debug_str       0x0001d6         0x26 build/default/production/_ext/1472/LCD.o
- .debug_str       0x0001fc          0xc build/default/production/_ext/1472/utilidades.o
- .debug_str       0x000208         0xb0 build/default/production/_ext/1472/main_Proy.o
- .debug_str       0x0002b8         0xe6 build/default/production/_ext/1472/ADC1.o
- .debug_str       0x00039e         0x49 build/default/production/_ext/1472/i2c_funciones.o
- .debug_str       0x0003e7         0x5b build/default/production/_ext/1472/CN.o
- .debug_str       0x000442         0x27 build/default/production/_ext/1472/GPIO.o
- .debug_str       0x000469         0x26 build/default/production/_ext/1472/PWM.o
+ .debug_str       0x00001f        0x14a build/default/production/_ext/1472/timers.o
+ .debug_str       0x000169         0x98 build/default/production/_ext/1472/UART2_RS232.o
+ .debug_str       0x000201         0x26 build/default/production/_ext/1472/LCD.o
+ .debug_str       0x000227          0xc build/default/production/_ext/1472/utilidades.o
+ .debug_str       0x000233         0xd1 build/default/production/_ext/1472/main_Proy.o
+ .debug_str       0x000304         0xe6 build/default/production/_ext/1472/ADC1.o
+ .debug_str       0x0003ea         0x49 build/default/production/_ext/1472/i2c_funciones.o
+ .debug_str       0x000433         0x5c build/default/production/_ext/1472/CN.o
+ .debug_str       0x00048f         0x27 build/default/production/_ext/1472/GPIO.o
+ .debug_str       0x0004b6         0x26 build/default/production/_ext/1472/PWM.o
 
 .debug_loc
  *(.debug_loc)
@@ -608,32 +618,32 @@ __FUID3
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000        0x69b
+                  0x000000        0x6e9
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0x25 build/default/production/_ext/1472/oscilator.o
  .debug_pubnames
-                  0x000025        0x192 build/default/production/_ext/1472/timers.o
+                  0x000025        0x1d1 build/default/production/_ext/1472/timers.o
  .debug_pubnames
-                  0x0001b7         0x9a build/default/production/_ext/1472/UART2_RS232.o
+                  0x0001f6         0x9a build/default/production/_ext/1472/UART2_RS232.o
  .debug_pubnames
-                  0x000251         0x38 build/default/production/_ext/1472/LCD.o
+                  0x000290         0x38 build/default/production/_ext/1472/LCD.o
  .debug_pubnames
-                  0x000289         0x85 build/default/production/_ext/1472/utilidades.o
+                  0x0002c8         0x85 build/default/production/_ext/1472/utilidades.o
  .debug_pubnames
-                  0x00030e         0x23 build/default/production/_ext/1472/memoria.o
+                  0x00034d         0x23 build/default/production/_ext/1472/memoria.o
  .debug_pubnames
-                  0x000331         0x1b build/default/production/_ext/1472/main_Proy.o
+                  0x000370         0x1b build/default/production/_ext/1472/main_Proy.o
  .debug_pubnames
-                  0x00034c        0x148 build/default/production/_ext/1472/ADC1.o
+                  0x00038b        0x148 build/default/production/_ext/1472/ADC1.o
  .debug_pubnames
-                  0x000494         0xdb build/default/production/_ext/1472/i2c_funciones.o
+                  0x0004d3         0xdb build/default/production/_ext/1472/i2c_funciones.o
  .debug_pubnames
-                  0x00056f         0x40 build/default/production/_ext/1472/CN.o
+                  0x0005ae         0x4f build/default/production/_ext/1472/CN.o
  .debug_pubnames
-                  0x0005af         0x34 build/default/production/_ext/1472/GPIO.o
+                  0x0005fd         0x34 build/default/production/_ext/1472/GPIO.o
  .debug_pubnames
-                  0x0005e3         0xb8 build/default/production/_ext/1472/PWM.o
+                  0x000631         0xb8 build/default/production/_ext/1472/PWM.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -1829,23 +1839,23 @@ LOAD data_init
  .debug_pubtypes
                   0x000108         0x7e build/default/production/_ext/1472/oscilator.o
  .debug_pubtypes
-                  0x000186        0x1de build/default/production/_ext/1472/timers.o
+                  0x000186        0x1fd build/default/production/_ext/1472/timers.o
  .debug_pubtypes
-                  0x000364         0xd5 build/default/production/_ext/1472/UART2_RS232.o
+                  0x000383         0xd5 build/default/production/_ext/1472/UART2_RS232.o
  .debug_pubtypes
-                  0x000439         0x97 build/default/production/_ext/1472/LCD.o
+                  0x000458         0x97 build/default/production/_ext/1472/LCD.o
  .debug_pubtypes
-                  0x0004d0         0x12 build/default/production/_ext/1472/utilidades.o
+                  0x0004ef         0x12 build/default/production/_ext/1472/utilidades.o
  .debug_pubtypes
-                  0x0004e2         0x12 build/default/production/_ext/1472/memoria.o
+                  0x000501         0x12 build/default/production/_ext/1472/memoria.o
  .debug_pubtypes
-                  0x0004f4         0x1f build/default/production/_ext/1472/main_Proy.o
+                  0x000513         0x1f build/default/production/_ext/1472/main_Proy.o
  .debug_pubtypes
-                  0x000513         0xe7 build/default/production/_ext/1472/ADC1.o
+                  0x000532         0xe7 build/default/production/_ext/1472/ADC1.o
  .debug_pubtypes
-                  0x0005fa         0x67 build/default/production/_ext/1472/i2c_funciones.o
+                  0x000619         0x67 build/default/production/_ext/1472/i2c_funciones.o
  .debug_pubtypes
-                  0x000661        0x113 build/default/production/_ext/1472/CN.o
+                  0x000680         0xf4 build/default/production/_ext/1472/CN.o
  .debug_pubtypes
                   0x000774         0x7c build/default/production/_ext/1472/GPIO.o
  .debug_pubtypes
@@ -1898,76 +1908,78 @@ __c30_signature
  __c30_signature
                   0x000905          0x6 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(futil.eo)
 
-.nbss               0x0800         0x22
- .nbss              0x0800         0x12 build/default/production/_ext/1472/ADC1.o
-                    0x0800                  _n_muestras
-                    0x0802                  _flag_media
-                    0x0804                  _m_poten
-                    0x0806                  _m_temp
-                    0x0808                  _m_joy_x
-                    0x080a                  _m_joy_y
-                    0x080c                  _m_joy_z
-                    0x080e                  _m_mini_joy_x
-                    0x0810                  _m_mini_joy_y
- .nbss              0x0812         0x10 build/default/production/_ext/1472/timers.o
-                    0x0812                  _flag_T9
-                    0x0814                  _flag_crono
-                    0x0816                  _estado_LCD
-                    0x0818                  _L5
-                    0x081a                  _Tac
-                    0x081c                  _estadoPWM
-                    0x081e                  _scroll
-                    0x0820                  _estado_posicion_segura
+.nbss               0x0800         0x24
+ .nbss              0x0800         0x12 build/default/production/_ext/1472/timers.o
+                    0x0800                  _flag_T9
+                    0x0802                  _flag_crono
+                    0x0804                  _estado_LCD
+                    0x0806                  _L5
+                    0x0808                  _Tac
+                    0x080a                  _estadoPWM
+                    0x080c                  _scroll
+                    0x080e                  _estado_posicion_segura
+                    0x0810                  _fin_programa
+ .nbss              0x0812         0x12 build/default/production/_ext/1472/ADC1.o
+                    0x0812                  _n_muestras
+                    0x0814                  _flag_media
+                    0x0816                  _m_poten
+                    0x0818                  _m_temp
+                    0x081a                  _m_joy_x
+                    0x081c                  _m_joy_y
+                    0x081e                  _m_joy_z
+                    0x0820                  _m_mini_joy_x
+                    0x0822                  _m_mini_joy_y
 
-.ndata              0x0822          0xe
- .ndata             0x0822          0xe build/default/production/_ext/1472/PWM.o
-                    0x0822                  _DUTY_MIN
-                    0x0824                  _DUTY_MAX
-                    0x0826                  _POS_SEG_0
-                    0x0828                  _POS_SEG_1
-                    0x082a                  _POS_SEG_2
-                    0x082c                  _POS_SEG_3
-                    0x082e                  _POS_SEG_4
+.ndata              0x0824          0xe
+ .ndata             0x0824          0xe build/default/production/_ext/1472/PWM.o
+                    0x0824                  _DUTY_MIN
+                    0x0826                  _DUTY_MAX
+                    0x0828                  _POS_SEG_0
+                    0x082a                  _POS_SEG_1
+                    0x082c                  _POS_SEG_2
+                    0x082e                  _POS_SEG_3
+                    0x0830                  _POS_SEG_4
 
-.nbss               0x0830         0x14
- .nbss              0x0830          0xa build/default/production/_ext/1472/UART2_RS232.o
-                    0x0830                  _estado
-                    0x0832                  _indice
-                    0x0834                  _fila_datos
-                    0x0836                  _columna_datos
-                    0x0838                  _final
- .nbss              0x083a          0xa build/default/production/_ext/1472/PWM.o
-                    0x083a                  _duty0
-                    0x083c                  _duty1
-                    0x083e                  _duty2
-                    0x0840                  _duty3
-                    0x0842                  _duty4
-
-.ndata              0x0844          0x2
- .ndata             0x0844          0x2 build/default/production/_ext/1472/UART2_RS232.o
-                    0x0844                  _dato_recibido
-
-.nbss               0x0846          0x2
- .nbss              0x0846          0x2 build/default/production/_ext/1472/CN.o
+.nbss               0x0832         0x18
+ .nbss              0x0832          0xa build/default/production/_ext/1472/UART2_RS232.o
+                    0x0832                  _estado
+                    0x0834                  _indice
+                    0x0836                  _fila_datos
+                    0x0838                  _columna_datos
+                    0x083a                  _final
+ .nbss              0x083c          0xa build/default/production/_ext/1472/PWM.o
+                    0x083c                  _duty0
+                    0x083e                  _duty1
+                    0x0840                  _duty2
+                    0x0842                  _duty3
+                    0x0844                  _duty4
+ .nbss              0x0846          0x4 build/default/production/_ext/1472/CN.o
                     0x0846                  _flag_control
+                    0x0848                  _pos_segura
 
-.data               0x0848        0x120
- .data              0x0848        0x120 build/default/production/_ext/1472/memoria.o
-                    0x0848                  _LCD_Pantalla
+.ndata              0x084a          0x4
+ .ndata             0x084a          0x2 build/default/production/_ext/1472/timers.o
+                    0x084a                  _objetivo
+ .ndata             0x084c          0x2 build/default/production/_ext/1472/UART2_RS232.o
+                    0x084c                  _dato_recibido
 
-.bss                0x0968         0x70
- .bss               0x0968         0x70 build/default/production/_ext/1472/ADC1.o
-                    0x0968                  _muestras_poten
-                    0x0978                  _muestras_temp
-                    0x0988                  _muestras_j_x
-                    0x0998                  _muestras_j_y
-                    0x09a8                  _muestras_j_z
-                    0x09b8                  _muestras_mini_j_x
-                    0x09c8                  _muestras_mini_j_y
+.data               0x084e        0x120
+ .data              0x084e        0x120 build/default/production/_ext/1472/memoria.o
+                    0x084e                  _LCD_Pantalla
 
-.data               0x09d8         0x10
- .data              0x09d8         0x10 build/default/production/_ext/1472/utilidades.o
-                    0x09d8                  _tabla_carac
+.bss                0x096e         0x70
+ .bss               0x096e         0x70 build/default/production/_ext/1472/ADC1.o
+                    0x096e                  _muestras_poten
+                    0x097e                  _muestras_temp
+                    0x098e                  _muestras_j_x
+                    0x099e                  _muestras_j_y
+                    0x09ae                  _muestras_j_z
+                    0x09be                  _muestras_mini_j_x
+                    0x09ce                  _muestras_mini_j_y
+
+.data               0x09de         0x10
+ .data              0x09de         0x10 build/default/production/_ext/1472/utilidades.o
+                    0x09de                  _tabla_carac
 
 .config_FWDTEN    0xf8000a          0x2
  .config_FWDTEN
@@ -1978,6 +1990,11 @@ __c30_signature
 
 .config_IESO      0xf80006          0x2
  .config_IESO     0xf80006          0x2 build/default/production/_ext/1472/oscilator.o
+
+.ivt._T1Interrupt
+                  0x00001a          0x2
+ .ivt._T1Interrupt
+                  0x00001a          0x2 build/default/production/_ext/1472/timers.o
 
 .ivt._T2Interrupt
                   0x000022          0x2
@@ -2029,64 +2046,65 @@ __c30_signature
  .ivt._CNInterrupt
                   0x00003a          0x2 build/default/production/_ext/1472/CN.o
 
-.const              0x8a82          0x4 load address 0x000a82  
- .const             0x8a82          0x4 build/default/production/_ext/1472/UART2_RS232.o
+.const              0x8ad6          0x4 load address 0x000ad6  
+ .const             0x8ad6          0x4 build/default/production/_ext/1472/UART2_RS232.o
 
-.text             0x000a86        0x978
- .text            0x000a86        0x32e build/default/production/_ext/1472/i2c_funciones.o
-                  0x000a86                  _InitI2C_1
-                  0x000a96                  _StartI2C_1
-                  0x000ac4                  _RestartI2C_1
-                  0x000af2                  _StopI2C_1
-                  0x000b20                  _IdleI2C_1
-                  0x000b4e                  _WriteI2C_1
-                  0x000b82                  _ACKCheck_1
-                  0x000bbe                  _NotAckI2C_1
-                  0x000bee                  _AckI2C_1
-                  0x000c1e                  _getI2C_1
-                  0x000c66                  _getsI2C_1
-                  0x000ca6                  _LDByteReadI2C_1
-                  0x000d40                  _LDByteWriteI2C_1
- .text            0x000db4        0x2e0 build/default/production/_ext/1472/timers.o
-                  0x000db4                  _inic_Timer2_PWM
-                  0x000dd6                  _inic_Timer3
-                  0x000df4                  _inic_Timer4
-                  0x000e14                  _inic_Timer5
-                  0x000e32                  _inic_Timer7
-                  0x000e52                  _inic_Timer9
-                  0x000e82                  _Delay_us
-                  0x000ebe                  _Delay_ms
-                  0x000f10                  _inic_crono
-                  0x000f36                  _reinic_crono
-                  0x000f62                  _cronometro
- .text            0x001094        0x212 build/default/production/_ext/1472/main_Proy.o
-                  0x001094                  _main
- .text            0x0012a6        0x158 build/default/production/_ext/1472/utilidades.o
-                  0x0012a6                  _conversion_tiempo
-                  0x0012ee                  _imprimir_decimal
-                  0x001338                  _dec_a_hex
-                  0x0013a2                  _calcular_distancia
-                  0x0013c8                  _calcular_media
+.text             0x000ada        0x9aa
+ .text            0x000ada        0x32e build/default/production/_ext/1472/i2c_funciones.o
+                  0x000ada                  _InitI2C_1
+                  0x000aea                  _StartI2C_1
+                  0x000b18                  _RestartI2C_1
+                  0x000b46                  _StopI2C_1
+                  0x000b74                  _IdleI2C_1
+                  0x000ba2                  _WriteI2C_1
+                  0x000bd6                  _ACKCheck_1
+                  0x000c12                  _NotAckI2C_1
+                  0x000c42                  _AckI2C_1
+                  0x000c72                  _getI2C_1
+                  0x000cba                  _getsI2C_1
+                  0x000cfa                  _LDByteReadI2C_1
+                  0x000d94                  _LDByteWriteI2C_1
+ .text            0x000e08        0x300 build/default/production/_ext/1472/timers.o
+                  0x000e08                  _inic_Timer1
+                  0x000e28                  _inic_Timer2_PWM
+                  0x000e4a                  _inic_Timer3
+                  0x000e68                  _inic_Timer4
+                  0x000e88                  _inic_Timer5
+                  0x000ea6                  _inic_Timer7
+                  0x000ec6                  _inic_Timer9
+                  0x000ef6                  _Delay_us
+                  0x000f32                  _Delay_ms
+                  0x000f84                  _inic_crono
+                  0x000faa                  _reinic_crono
+                  0x000fd6                  _cronometro
+ .text            0x001108        0x224 build/default/production/_ext/1472/main_Proy.o
+                  0x001108                  _main
+ .text            0x00132c        0x158 build/default/production/_ext/1472/utilidades.o
+                  0x00132c                  _conversion_tiempo
+                  0x001374                  _imprimir_decimal
+                  0x0013be                  _dec_a_hex
+                  0x001428                  _calcular_distancia
+                  0x00144e                  _calcular_media
 
-.dinit            0x0013fe        0x116
- .dinit           0x0013fe        0x116 data_init
+.dinit            0x001484        0x11e
+ .dinit           0x001484        0x11e data_init
 
-.text             0x001514        0x1f0
- .text            0x001514         0xb0 build/default/production/_ext/1472/LCD.o
-                  0x001514                  _lcd_cmd
-                  0x001540                  _lcd_data
-                  0x00156e                  _Init_LCD
- .text            0x0015c4         0x56 build/default/production/_ext/1472/ADC1.o
-                  0x0015c4                  _inic_ADC1
-                  0x001612                  _comienzo_muestreo
- .text            0x00161a         0x52 build/default/production/_ext/1472/oscilator.o
-                  0x00161a                  _inic_oscilator
- .text            0x00166c         0x2e build/default/production/_ext/1472/UART2_RS232.o
-                  0x00166c                  _inic_UART2
- .text            0x00169a         0x2e build/default/production/_ext/1472/PWM.o
-                  0x00169a                  _inic_PWM_servos
- .text            0x0016c8         0x2a build/default/production/_ext/1472/GPIO.o
-                  0x0016c8                  _inic_leds
-                  0x0016de                  _inic_pulsadores
- .text            0x0016f2         0x12 build/default/production/_ext/1472/CN.o
-                  0x0016f2                  _inic_CN
+.text             0x0015a2        0x1f0
+ .text            0x0015a2         0xb0 build/default/production/_ext/1472/LCD.o
+                  0x0015a2                  _lcd_cmd
+                  0x0015ce                  _lcd_data
+                  0x0015fc                  _Init_LCD
+ .text            0x001652         0x56 build/default/production/_ext/1472/ADC1.o
+                  0x001652                  _inic_ADC1
+                  0x0016a0                  _comienzo_muestreo
+ .text            0x0016a8         0x52 build/default/production/_ext/1472/oscilator.o
+                  0x0016a8                  _inic_oscilator
+ .text            0x0016fa         0x2e build/default/production/_ext/1472/UART2_RS232.o
+                  0x0016fa                  _inic_UART2
+ .text            0x001728         0x2e build/default/production/_ext/1472/PWM.o
+                  0x001728                  _inic_PWM_servos
+ .text            0x001756         0x2a build/default/production/_ext/1472/GPIO.o
+                  0x001756                  _inic_leds
+                  0x00176c                  _inic_pulsadores
+ .text            0x001780         0x12 build/default/production/_ext/1472/CN.o
+                  0x001780                  _inic_CN

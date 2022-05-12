@@ -25,6 +25,7 @@ unsigned char LCD_Pantalla[16][18] = {
     ("Servo 2:    ----""\x0D\x0A"),
     ("Servo 3:    ----""\x0D\x0A"),
     ("Servo 4:    ----""\x0D\x0A"),
-    ("Servo 5:    ----""\x0D\x0A")
+    //("Servo 5:    ----""\x0D\x0A"),
+    ("Distancia:   ---""\x0D\x0A")
 };
 

@@ -13,6 +13,7 @@
 #include "memoria.h"
 #include "LCD.h"
 #include "ADC1.h"
+#include "CN.h"
 #include "PWM.h"
 unsigned int flag_T9=0;
 unsigned int flag_crono=0;
@@ -23,9 +24,26 @@ unsigned int estadoPWM=0;
 unsigned int scroll=0;
 unsigned int estado_posicion_segura=0;
 unsigned int fin_programa=0;
+unsigned int objetivo=500;
+unsigned int ultraSonicFlag=0;
 ////////////////////
 //Inicializaciones
 ////////////////////
+void inic_Timer1(){
+   TMR1 = 0 ; 	// Inicializar el registro de cuenta
+    PR1 =  50000-1;	// Periodo del temporizador
+		// Queremos que cuente 20 ms.
+		// Fosc= 40 MHz (vease Inic_oscilator()) de modo que
+		// Fcy = 20 MHz (cada instruccion dos ciclos de reloj)
+		// Por tanto, Tcy= 50 ns para ejecutar una instruccion
+		// Para contar 0.5 ms se necesitan 10000 ciclos.
+    T1CONbits.TCKPS = 1;	// escala del prescaler 1:1
+    T1CONbits.TCS = 0;	// reloj interno
+    T1CONbits.TGATE = 0;	// Deshabilitar el modo Gate
+    IEC0bits.T1IE =1;
+    IFS0bits.T1IF =0;
+    T1CONbits.TON = 1;	// puesta en marcha del temporizado
+}
 void inic_Timer2_PWM ()
 {
     TMR2 = 0 ; 	// Inicializar el registro de cuenta
@@ -64,7 +82,7 @@ void inic_Timer4 ()
 
     TMR4 = 0 ; 	// Inicializar el registro de cuenta
     PR4 =  25000-1;	// Periodo del temporizador
-		// Queremos que cuente 20 ms.
+		// Queremos que cuente 10 ms.
 		// Fosc= 40 MHz (vease Inic_oscilator()) de modo que
 		// Fcy = 20 MHz (cada instruccion dos ciclos de reloj)
 		// Por tanto, Tcy= 50 ns para ejecutar una instruccion
@@ -92,6 +110,24 @@ void inic_Timer5 ()
     IEC1bits.T5IE =1;
     IFS1bits.T5IF =0;
     T5CONbits.TON = 1;	// puesta en marcha del temporizado
+}
+
+void inic_Timer6 ()
+{
+
+    TMR6 = 0 ; 	// Inicializar el registro de cuenta
+    PR6 =  21875-1;	// Periodo del temporizador
+		// Queremos que cuente 2 ms.
+		// Fosc= 40 MHz (vease Inic_oscilator()) de modo que
+		// Fcy = 20 MHz (cada instruccion dos ciclos de reloj)
+		// Por tanto, Tcy= 50 ns para ejecutar una instruccion
+		// Para contar 2 ms se necesitan 40000 ciclos.
+    T6CONbits.TCKPS = 2;	// escala del prescaler 1:1
+    T6CONbits.TCS = 0;	// reloj interno
+    T6CONbits.TGATE = 0;	// Deshabilitar el modo Gate
+    IEC2bits.T6IE =1;
+    IFS2bits.T6IF =0;
+    T6CONbits.TON = 1;	// puesta en marcha del temporizado
 }
 
 void inic_Timer7 ()
@@ -234,6 +270,19 @@ void cronometro(unsigned int *mili,unsigned int *deci,unsigned int *seg,unsigned
 //////////////////
 //Interrupciones
 //////////////////
+void _ISR_NO_PSV _T1Interrupt(){
+    if(flag_control==1 && pos_segura ==0){
+        if(duty3>objetivo){
+            duty3-=10;
+        }else if(duty3<objetivo){
+            duty3+=10;
+        }else if(duty3==objetivo){
+            duty3 = objetivo;
+        }
+    }
+    
+    IFS0bits.T1IF=0;
+}
 void _ISR_NO_PSV _T2Interrupt(){     
     switch(estadoPWM){
         case 0:
@@ -370,6 +419,12 @@ void _ISR_NO_PSV _T5Interrupt(){
             break;       
     }
     IFS1bits.T5IF=0;    //bajamos el flag de la interrupcion
+}
+
+void _ISR_NO_PSV _T6Interrupt(){
+    ultraSonicFlag=0;       //Subimos el flag del contador cronometro
+    T6CONbits.TON=0;          
+    IFS2bits.T6IF=0;    //Ponemos el flag T7IF a 0
 }
 
 void _ISR_NO_PSV _T7Interrupt(){

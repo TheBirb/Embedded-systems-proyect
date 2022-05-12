@@ -36,6 +36,6 @@ void inic_PWM_servos ()
     duty1=3250;
     duty2=3250;
     duty3=3250;
-    duty4 = 3250;
+    duty4 =3250;
 }
 

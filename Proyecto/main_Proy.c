@@ -17,11 +17,14 @@
 #include "PWM.h"
 #include "CN.h"
 #include "GPIO.h"
+#include "srf08.h"
 
 int main(void) {
     
     
     unsigned int ms,ds,s,min;
+    unsigned char dir[2];
+    unsigned int distancia;
     inic_oscilator();
     inic_UART2();
     
@@ -46,6 +49,9 @@ int main(void) {
     comienzo_muestreo();
     inic_PWM_servos();
     inic_Timer2_PWM();
+    inic_Timer1();
+    inic_medicion_dis(0xE6);
+    inic_Timer6();
     while(1){
         cronometro(&ms,&ds,&s,&min);
         if(flag_media==1){
@@ -117,16 +123,26 @@ int main(void) {
                         duty4=3200;
                     }
                 }
-                duty3 = DUTY_MIN+(unsigned int)((float)m_joy_z*3.98);
+                objetivo = DUTY_MIN+(unsigned int)((float)m_joy_z*3.98);
             }
             flag_media=0;
             
         }
+        if(ultraSonicFlag==1){
+            leer_medicion(0xE6,dir);
+            distancia=calcular_distancia(dir);
+            imprimir_decimal(&LCD_Pantalla[15][13],distancia,3);
+            inic_medicion_dis(0xE6);
+            inic_Timer6();
+            ultraSonicFlag=0;
+        }
+        
         imprimir_decimal(&LCD_Pantalla[11][12],duty0,4);
         imprimir_decimal(&LCD_Pantalla[12][12],duty1,4);
         imprimir_decimal(&LCD_Pantalla[13][12],duty2,4);
         imprimir_decimal(&LCD_Pantalla[14][12],duty3,4);
-        imprimir_decimal(&LCD_Pantalla[15][12],duty4,4);
+        //imprimir_decimal(&LCD_Pantalla[15][12],duty4,4);
         if(fin_programa)break;
     }
+    return 0;
 }

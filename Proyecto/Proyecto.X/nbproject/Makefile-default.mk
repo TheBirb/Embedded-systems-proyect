@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../oscilator.c ../timers.c ../UART2_RS232.c ../LCD.c ../utilidades.c ../memoria.c ../main_Proy.c ../ADC1.c ../i2c_funciones.c ../CN.c ../GPIO.c ../PWM.c
+SOURCEFILES_QUOTED_IF_SPACED=../oscilator.c ../timers.c ../UART2_RS232.c ../LCD.c ../utilidades.c ../memoria.c ../main_Proy.c ../ADC1.c ../i2c_funciones.c ../CN.c ../GPIO.c ../PWM.c ../srf08.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/oscilator.o ${OBJECTDIR}/_ext/1472/timers.o ${OBJECTDIR}/_ext/1472/UART2_RS232.o ${OBJECTDIR}/_ext/1472/LCD.o ${OBJECTDIR}/_ext/1472/utilidades.o ${OBJECTDIR}/_ext/1472/memoria.o ${OBJECTDIR}/_ext/1472/main_Proy.o ${OBJECTDIR}/_ext/1472/ADC1.o ${OBJECTDIR}/_ext/1472/i2c_funciones.o ${OBJECTDIR}/_ext/1472/CN.o ${OBJECTDIR}/_ext/1472/GPIO.o ${OBJECTDIR}/_ext/1472/PWM.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/oscilator.o.d ${OBJECTDIR}/_ext/1472/timers.o.d ${OBJECTDIR}/_ext/1472/UART2_RS232.o.d ${OBJECTDIR}/_ext/1472/LCD.o.d ${OBJECTDIR}/_ext/1472/utilidades.o.d ${OBJECTDIR}/_ext/1472/memoria.o.d ${OBJECTDIR}/_ext/1472/main_Proy.o.d ${OBJECTDIR}/_ext/1472/ADC1.o.d ${OBJECTDIR}/_ext/1472/i2c_funciones.o.d ${OBJECTDIR}/_ext/1472/CN.o.d ${OBJECTDIR}/_ext/1472/GPIO.o.d ${OBJECTDIR}/_ext/1472/PWM.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/oscilator.o ${OBJECTDIR}/_ext/1472/timers.o ${OBJECTDIR}/_ext/1472/UART2_RS232.o ${OBJECTDIR}/_ext/1472/LCD.o ${OBJECTDIR}/_ext/1472/utilidades.o ${OBJECTDIR}/_ext/1472/memoria.o ${OBJECTDIR}/_ext/1472/main_Proy.o ${OBJECTDIR}/_ext/1472/ADC1.o ${OBJECTDIR}/_ext/1472/i2c_funciones.o ${OBJECTDIR}/_ext/1472/CN.o ${OBJECTDIR}/_ext/1472/GPIO.o ${OBJECTDIR}/_ext/1472/PWM.o ${OBJECTDIR}/_ext/1472/srf08.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/oscilator.o.d ${OBJECTDIR}/_ext/1472/timers.o.d ${OBJECTDIR}/_ext/1472/UART2_RS232.o.d ${OBJECTDIR}/_ext/1472/LCD.o.d ${OBJECTDIR}/_ext/1472/utilidades.o.d ${OBJECTDIR}/_ext/1472/memoria.o.d ${OBJECTDIR}/_ext/1472/main_Proy.o.d ${OBJECTDIR}/_ext/1472/ADC1.o.d ${OBJECTDIR}/_ext/1472/i2c_funciones.o.d ${OBJECTDIR}/_ext/1472/CN.o.d ${OBJECTDIR}/_ext/1472/GPIO.o.d ${OBJECTDIR}/_ext/1472/PWM.o.d ${OBJECTDIR}/_ext/1472/srf08.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1472/oscilator.o ${OBJECTDIR}/_ext/1472/timers.o ${OBJECTDIR}/_ext/1472/UART2_RS232.o ${OBJECTDIR}/_ext/1472/LCD.o ${OBJECTDIR}/_ext/1472/utilidades.o ${OBJECTDIR}/_ext/1472/memoria.o ${OBJECTDIR}/_ext/1472/main_Proy.o ${OBJECTDIR}/_ext/1472/ADC1.o ${OBJECTDIR}/_ext/1472/i2c_funciones.o ${OBJECTDIR}/_ext/1472/CN.o ${OBJECTDIR}/_ext/1472/GPIO.o ${OBJECTDIR}/_ext/1472/PWM.o
+OBJECTFILES=${OBJECTDIR}/_ext/1472/oscilator.o ${OBJECTDIR}/_ext/1472/timers.o ${OBJECTDIR}/_ext/1472/UART2_RS232.o ${OBJECTDIR}/_ext/1472/LCD.o ${OBJECTDIR}/_ext/1472/utilidades.o ${OBJECTDIR}/_ext/1472/memoria.o ${OBJECTDIR}/_ext/1472/main_Proy.o ${OBJECTDIR}/_ext/1472/ADC1.o ${OBJECTDIR}/_ext/1472/i2c_funciones.o ${OBJECTDIR}/_ext/1472/CN.o ${OBJECTDIR}/_ext/1472/GPIO.o ${OBJECTDIR}/_ext/1472/PWM.o ${OBJECTDIR}/_ext/1472/srf08.o
 
 # Source Files
-SOURCEFILES=../oscilator.c ../timers.c ../UART2_RS232.c ../LCD.c ../utilidades.c ../memoria.c ../main_Proy.c ../ADC1.c ../i2c_funciones.c ../CN.c ../GPIO.c ../PWM.c
+SOURCEFILES=../oscilator.c ../timers.c ../UART2_RS232.c ../LCD.c ../utilidades.c ../memoria.c ../main_Proy.c ../ADC1.c ../i2c_funciones.c ../CN.c ../GPIO.c ../PWM.c ../srf08.c
 
 
 CFLAGS=
@@ -178,6 +178,13 @@ ${OBJECTDIR}/_ext/1472/PWM.o: ../PWM.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../PWM.c  -o ${OBJECTDIR}/_ext/1472/PWM.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1472/PWM.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_REAL_ICE=1    -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -I"../../../../Applications/microchip/xc16/v1.61/support/PIC24H/h" -O0 -msmart-io=1 -Wall -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/PWM.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/_ext/1472/srf08.o: ../srf08.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
+	@${RM} ${OBJECTDIR}/_ext/1472/srf08.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/srf08.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../srf08.c  -o ${OBJECTDIR}/_ext/1472/srf08.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1472/srf08.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_REAL_ICE=1    -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -I"../../../../Applications/microchip/xc16/v1.61/support/PIC24H/h" -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/srf08.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 else
 ${OBJECTDIR}/_ext/1472/oscilator.o: ../oscilator.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
@@ -262,6 +269,13 @@ ${OBJECTDIR}/_ext/1472/PWM.o: ../PWM.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/_ext/1472/PWM.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../PWM.c  -o ${OBJECTDIR}/_ext/1472/PWM.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1472/PWM.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -I"../../../../Applications/microchip/xc16/v1.61/support/PIC24H/h" -O0 -msmart-io=1 -Wall -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/PWM.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1472/srf08.o: ../srf08.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
+	@${RM} ${OBJECTDIR}/_ext/1472/srf08.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/srf08.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../srf08.c  -o ${OBJECTDIR}/_ext/1472/srf08.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1472/srf08.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -I"../../../../Applications/microchip/xc16/v1.61/support/PIC24H/h" -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/srf08.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 

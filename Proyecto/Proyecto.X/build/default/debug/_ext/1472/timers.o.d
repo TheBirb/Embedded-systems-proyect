@@ -6,4 +6,5 @@ build/default/debug/_ext/1472/timers.o:  \
 ../memoria.h  \
 ../LCD.h  \
 ../ADC1.h  \
-../PWM.h 
+../CN.h  \
+ ../PWM.h 
