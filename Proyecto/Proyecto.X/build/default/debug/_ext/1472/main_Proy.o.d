@@ -11,4 +11,5 @@ build/default/debug/_ext/1472/main_Proy.o:  \
 ../PWM.h  \
 ../CN.h  \
 ../GPIO.h  \
-../srf08.h 
+../srf08.h  \
+ ../i2c_funciones.h 

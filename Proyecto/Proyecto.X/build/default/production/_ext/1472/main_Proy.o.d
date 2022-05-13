@@ -10,4 +10,6 @@ build/default/production/_ext/1472/main_Proy.o:  \
 ../ADC1.h  \
 ../PWM.h  \
 ../CN.h  \
-../GPIO.h 
+../GPIO.h  \
+ ../srf08.h  \
+../i2c_funciones.h 

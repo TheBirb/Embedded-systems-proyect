@@ -8,7 +8,7 @@
 
 #include "p24HJ256GP610A.h"
 
-unsigned char LCD_Pantalla[16][18] = {
+unsigned char LCD_Pantalla[18][18] = {
     //0123456789ABCDEF
     ("- DSE 2021-22 --""\x0D\x0A"),
     ("Tiempo: --:--:- ""\x0D\x0A"),
@@ -25,7 +25,8 @@ unsigned char LCD_Pantalla[16][18] = {
     ("Servo 2:    ----""\x0D\x0A"),
     ("Servo 3:    ----""\x0D\x0A"),
     ("Servo 4:    ----""\x0D\x0A"),
-    //("Servo 5:    ----""\x0D\x0A"),
-    ("Distancia:   ---""\x0D\x0A")
+    ("Servo 5:    ----""\x0D\x0A"),
+    ("Distancia:   ---""\x0D\x0A"),
+    ("----------------""\x0D\x0A")
 };
 

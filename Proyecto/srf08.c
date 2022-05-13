@@ -8,7 +8,7 @@ Fecha:01/04/22
 
 
 #include "i2c_funciones.h"
-
+unsigned int distancia;
 unsigned int inic_medicion_dis (unsigned char dirI2C)
  // Puesta en marcha de una medicion
  // Parametro dirI2C corresponde a la direccion I2C del sensor

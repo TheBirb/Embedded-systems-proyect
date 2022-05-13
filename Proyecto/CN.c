@@ -26,7 +26,7 @@ void inic_CN(){
 void _ISR_NO_PSV _CNInterrupt()
 {   
     if (!PORTDbits.RD6){ //S3
-		if(scroll!=14){
+		if(scroll!=16){
             scroll+=2;
         }  
 	}

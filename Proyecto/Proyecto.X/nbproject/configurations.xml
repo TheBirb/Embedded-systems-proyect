@@ -16,6 +16,7 @@
       <itemPath>../CN.h</itemPath>
       <itemPath>../GPIO.h</itemPath>
       <itemPath>../PWM.h</itemPath>
+      <itemPath>../i2c_funciones.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

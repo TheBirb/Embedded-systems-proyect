@@ -11,6 +11,7 @@
 #include "memoria.h"
 #include "PWM.h"
 #include "CN.h"
+#include "srf08.h"
 unsigned int estado=0;
 unsigned int indice=0;
 unsigned int fila_datos=0;
@@ -107,12 +108,14 @@ void _ISR_NO_PSV _U2RXInterrupt(){
                 duty1=DUTY_MIN;
             }
             break;
-        case 'r':                   //Pulsando la tecla m se aumenta en 10 el valor del servomotor
-            if((duty2+50)<DUTY_MAX){    //Si no es el valor máximo se aumenta en 100, sino se pone al valor máximo
-                duty2+=50;
-            }else{
-                 duty2=DUTY_MAX;
-            }
+        case 'r':                         //Pulsando la tecla m se aumenta en 10 el valor del servomotor 
+            if(distancia > 5){
+                if((duty2+50)<DUTY_MAX){    //Si no es el valor máximo se aumenta en 100, sino se pone al valor máximo
+                    duty2+=50;
+                }else{
+                    duty2=DUTY_MAX;
+                }
+            }     
             break;
         case 'f':                   //Pulsando la tecla n se reduce en 10 el valor del servomotor
             if((duty2-50)>DUTY_MIN){    //Si no es el valor mínimo se reduce en 100, sino se pone al valor mínimo
@@ -169,10 +172,10 @@ void _ISR_NO_PSV _U2TXInterrupt(){
     }else{
         U2TXREG=LCD_Pantalla[fila_datos][columna_datos];
         columna_datos++;
-        if(fila_datos!=15 && columna_datos==18){
+        if(fila_datos!=17 && columna_datos==18){
             fila_datos++;
             columna_datos=0;
-        }else if(fila_datos==15 && columna_datos==18){
+        }else if(fila_datos==17 && columna_datos==18){
             estado=0;
             columna_datos=0;
             fila_datos=0;

@@ -18,16 +18,16 @@
 #include "CN.h"
 #include "GPIO.h"
 #include "srf08.h"
+#include "i2c_funciones.h"
 
 int main(void) {
     
     
     unsigned int ms,ds,s,min;
     unsigned char dir[2];
-    unsigned int distancia;
     inic_oscilator();
     inic_UART2();
-    
+    InitI2C_1();
     inic_Timer7();
     inic_Timer3();
     Init_LCD();
@@ -98,11 +98,14 @@ int main(void) {
                     }
                 }
                 if(m_mini_joy_y>520){
-                    if(duty2<5500){
-                        duty2+=20;
-                    }else{
-                        duty2=5500;
+                    if(distancia > 5){
+                        if(duty2<5500){
+                            duty2+=20;
+                        }else{
+                            duty2=5500;
+                        }
                     }
+                    
                 }else if(m_mini_joy_y<480){
                     if(duty2>1500){
                         duty2-=20;
@@ -131,7 +134,7 @@ int main(void) {
         if(ultraSonicFlag==1){
             leer_medicion(0xE6,dir);
             distancia=calcular_distancia(dir);
-            imprimir_decimal(&LCD_Pantalla[15][13],distancia,3);
+            imprimir_decimal(&LCD_Pantalla[16][13],distancia,3);
             inic_medicion_dis(0xE6);
             inic_Timer6();
             ultraSonicFlag=0;
@@ -141,7 +144,7 @@ int main(void) {
         imprimir_decimal(&LCD_Pantalla[12][12],duty1,4);
         imprimir_decimal(&LCD_Pantalla[13][12],duty2,4);
         imprimir_decimal(&LCD_Pantalla[14][12],duty3,4);
-        //imprimir_decimal(&LCD_Pantalla[15][12],duty4,4);
+        imprimir_decimal(&LCD_Pantalla[15][12],duty4,4);
         if(fin_programa)break;
     }
     return 0;

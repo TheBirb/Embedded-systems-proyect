@@ -4,4 +4,5 @@ build/default/production/_ext/1472/UART2_RS232.o:  \
 ../timers.h  \
 ../memoria.h  \
 ../PWM.h  \
-../CN.h 
+../CN.h  \
+../srf08.h 

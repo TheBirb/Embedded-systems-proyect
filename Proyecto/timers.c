@@ -422,7 +422,7 @@ void _ISR_NO_PSV _T5Interrupt(){
 }
 
 void _ISR_NO_PSV _T6Interrupt(){
-    ultraSonicFlag=0;       //Subimos el flag del contador cronometro
+    ultraSonicFlag=1;       //Subimos el flag del contador cronometro
     T6CONbits.TON=0;          
     IFS2bits.T6IF=0;    //Ponemos el flag T7IF a 0
 }
