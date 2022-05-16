@@ -33,7 +33,8 @@ int main(void) {
     inic_Timer7();
     inic_Timer3();
     Init_LCD();
-    inic_pulsadores();
+    inic_leds();
+    inic_pulsadores(); 
     inic_Timer5();
     inic_CN();
     inic_crono(&ms,&ds,&s,&min);

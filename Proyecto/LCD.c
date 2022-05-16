@@ -11,34 +11,31 @@ LCD erabiltzeko funtzioak:
 #include "commons.h"
 #include "timers.h"
 
-	
+
 
 /*****	LCD SUBROUTINES  *****/ 
 void lcd_cmd (char cmd)        // subroutine for lcd commands
 {
-  RW = 0;           // RW=0, para escribir
-  RS = 0;           // RS=0, se va a escribir un comando
-  DATA &= 0xFF00;   // pines RD0-RD7 (dato que se envÃ­a): poner a 0
-  DATA |= cmd;      // copiar a esos pines el parametro cmd
-  E = 1;            // E=1. Debe permanecer activado al menos 230 ns. 
+  RW = 0;             // RW=0, para escribir
+  RS = 0;	      // RS=0, se va a escribir un comando
+  DATA &= 0xFF00;     // pines RD0-RD7 (dato que se envía): poner a 0
+  DATA |= cmd;        // copiar a esos pines el parametro cmd
+  E = 1;              // E=1. Debe permanecer activado al menos 230 ns. 
   Nop();
   Nop();
   Nop();
   Nop();
   Nop();
-  E = 0;            // desactivar E
-  RW = 1;           // desactivar escritura
+  E = 0;		// desactivar E
+  RW = 1;		// desactivar escritura
 }
 
 
 void lcd_data (char data)      // subroutine for lcd data
 {
-  RW = 0;               // RW=0, para escribir
-  RS = 1;          
-  E = 0;             	// desactivar E
-  RS = 0;            	// desactivar RS
-  RW = 1;               // RS=1, se va a escribir un caracter
-  DATA &= 0xFF00;    	// pines RD0-RD7 (dato que se envÃ­a): poner a 0
+  RW = 0;       	// RW=0, para escribir
+  RS = 1;            	// RS=1, se va a escribir un caracter
+  DATA &= 0xFF00;    	// pines RD0-RD7 (dato que se envía): poner a 0
   DATA |= data;      	// copiar a esos pines el parametro data
   E = 1;             	// E=1. Debe permanecer activado al menos 230 ns.
   Nop();
@@ -48,7 +45,7 @@ void lcd_data (char data)      // subroutine for lcd data
   Nop();
   E = 0;             	// desactivar E
   RS = 0;            	// desactivar RS
-  RW = 1;               // desactivar escritura
+  RW = 1;		// desactivar escritura
 }
 
 
@@ -58,7 +55,7 @@ void Init_LCD ()             // initialize LCD display
   // with LCD initialization
   // not always required and is based on system Vdd rise rate
   Delay_ms (15); // 15 ms delay
-			
+
   /* set initial states for the data and control pins */
   DATA &= 0xFF00;	
   RW = 0;                       // R/W state set low
@@ -72,18 +69,16 @@ void Init_LCD ()             // initialize LCD display
   E_TRIS = 0;                   // E pin set as output
 
   /* LCD initialization sequence */ 
-  lcd_cmd (0x38);		// function set (3 veces)
+  lcd_cmd (0x38);				// function set (3 veces)
   Delay_ms (5);         // 5 ms delay
   lcd_cmd (0x38);
   Delay_us (100);       // 100 us delay
   lcd_cmd (0x38);
-  Delay_us (40);        // 40 delay (mirar tabla en los apuntes)
+  Delay_us (40);      // 40 delay (mirar tabla en los apuntes)
   lcd_cmd (0x38);  
-  Delay_us (40);        // 40 delay (mirar tabla en los apuntes)
+  Delay_us (40);      // 40 delay (mirar tabla en los apuntes)
   lcd_cmd (0x0C);       // Display on/off control, cursor blink off (0x0C)
-  Delay_us (40);        // 40 delay (mirar tabla en los apuntes)
-  lcd_cmd (0x06);       // Entry mode set (0x06)
-  Delay_us (40);        // 40 delay (mirar tabla en los apuntes)
+  Delay_us (40);      // 40 delay (mirar tabla en los apuntes)
+  lcd_cmd (0x06);	// Entry mode set (0x06)
+  Delay_us (40);      // 40 delay (mirar tabla en los apuntes)
 }
-
-
