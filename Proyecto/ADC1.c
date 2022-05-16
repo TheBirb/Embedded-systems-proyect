@@ -20,6 +20,7 @@ unsigned int muestras_mini_j_x[8];
 unsigned int muestras_mini_j_y[8];
 unsigned int flag_media=0;
 unsigned int m_poten, m_temp, m_joy_x, m_joy_y, m_joy_z, m_mini_joy_x, m_mini_joy_y;
+
 void inic_ADC1 (void)
 {
 // Inicializacion registro control AD1CON1
@@ -102,39 +103,39 @@ void comienzo_muestreo ()
 
 void _ISR_NO_PSV _ADC1Interrupt(){
     
-    if(flag_media==0){
+    if(flag_media==0){                                  //Comprobamos si no hemos llegado a 8 muestras
         
-        switch (AD1CHS0bits.CH0SA) {
-            case 0 :
+        switch (AD1CHS0bits.CH0SA) {                    //Por cada interrupción vamos a recoger una entrada analogica
+            case 0 :                                    //En el caso 0 recogemos muestras del joystick x
                 muestras_j_x[n_muestras]=ADC1BUF0;
                 AD1CHS0bits.CH0SA=1; 
                 break;
-            case 1 :
-                muestras_j_y[n_muestras]=ADC1BUF0;
+            case 1 :                                    //En el caso 1 recogemos muestras del joystick y
+                muestras_j_y[n_muestras]=ADC1BUF0;      
                 AD1CHS0bits.CH0SA=2; 
                 break;
-            case 2 :
+            case 2 :                                    //En el caso 2 recogemos muestras del joystick z
                 muestras_j_z[n_muestras]=ADC1BUF0;
                 AD1CHS0bits.CH0SA=4; 
                 break;
-            case 4 :
+            case 4 :                                    //En el caso 4 recogemos muestras del temporizador
                 muestras_temp[n_muestras]=ADC1BUF0;
-                AD1CHS0bits.CH0SA=5;    //Cambiamos al muestreo del potenciometro
+                AD1CHS0bits.CH0SA=5;    
                 break;
-            case 5:
+            case 5:                                     //En el caso 5 recogemos muestras del potenciometro
                 muestras_poten[n_muestras]=ADC1BUF0;
                 AD1CHS0bits.CH0SA=8;
                 break;
-            case 8:
+            case 8:                                     //En el caso 8 recogemos muestras del mini joystick x
                 muestras_mini_j_x[n_muestras]=ADC1BUF0;
                 AD1CHS0bits.CH0SA=9;
                 break;
-            case 9:
+            case 9:                                     //En el caso 9 recogemos muestras del mini joystick y
                 muestras_mini_j_y[n_muestras]=ADC1BUF0;
                 if (n_muestras!=7){   
-                    n_muestras++;      //Aumentamos las muestras por cada interrupción del conversor
+                    n_muestras++;                       //Aumentamos las muestras cuando hemos recogido todas
                 }else{
-                    n_muestras=0;
+                    n_muestras=0;                       //Si llegamos a 8 reseteamos y calculamos la media
                     flag_media=1;
                 }
                 AD1CHS0bits.CH0SA=0;

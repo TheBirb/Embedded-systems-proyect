@@ -8,6 +8,7 @@
 
 #include "p24HJ256GP610A.h"
 
+//Matriz que contendrá los contenidos que se mostraran en pantalla y en la LCD
 unsigned char LCD_Pantalla[18][18] = {
     //0123456789ABCDEF
     ("- DSE 2021-22 --""\x0D\x0A"),

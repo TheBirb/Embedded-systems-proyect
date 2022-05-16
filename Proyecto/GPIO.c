@@ -1,7 +1,7 @@
 /*
 Funciones de inicializacion y tratamiento de pulsadores y leds
 
-Egileak: Izaskun
+Egileak: Iker Fernandez y Jon Moriñigo
 Data: Febrero 2020
 */
 

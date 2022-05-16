@@ -14,6 +14,7 @@ Egileak eta data!!!
 
 
 unsigned char tabla_carac[16]="0123456789";
+//Función para convertir el tiempo e imprimirlo por pantalla
 void conversion_tiempo (unsigned char *dir, unsigned int val)
 {
     unsigned char dig;
@@ -30,9 +31,11 @@ void conversion_tiempo (unsigned char *dir, unsigned int val)
     }
 }
 
+//Función para imprimir un valor decimal en pantalla (o almacenarlo en una dirección))
 void imprimir_decimal(unsigned char *dir, unsigned int val, unsigned int n_dig){
     unsigned char dig;
     unsigned int i=0;
+    //Recorreremos el número de digitos que hayamos indicado
     while(i<n_dig){
         dig = val %10;
         dir[(n_dig-1)-i]=tabla_carac[dig];
@@ -62,11 +65,12 @@ void dec_a_hex(unsigned int dec, unsigned char *hex,unsigned int longitud) {
     }
 }
 
+//Función para calcular la distancia que recoge el sensor
 unsigned int calcular_distancia(unsigned char *vec){
     unsigned int dist =0;
-    dist = vec[0];
-    dist <<= 8;
-    dist |= vec[1];
+    dist = vec[0];          
+    dist <<= 8;             //Recogemos el valor más bajo del vector y lo desplazamos a la izquierda
+    dist |= vec[1];         //Metemos el valor más alto del vector al inicio
     
     return dist;
 }
@@ -76,6 +80,7 @@ unsigned int calcular_media(unsigned int *vec){
     int i;
     unsigned int media=0, resultado=0;
     
+    //Sumamos las ocho muestras y las dividimos entre ocho
     for (i=0; i < 8; i++){
         media += vec[i];
     }

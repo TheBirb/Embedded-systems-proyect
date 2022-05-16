@@ -2,7 +2,7 @@
 
 // Inicializacion del modulo oscilator
 // Para ver la configuracion:
-//      Barra herramientas: Windows -> PIC Memory Views -> Configuration Bits
+// Barra herramientas: Windows -> PIC Memory Views -> Configuration Bits
 
 
 // Configuracion

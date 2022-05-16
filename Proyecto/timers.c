@@ -48,7 +48,6 @@ void inic_Timer2_PWM ()
 {
     TMR2 = 0 ; 	// Inicializar el registro de cuenta
     PR2 =  duty0-1;	// Periodo del temporizador
-		// Queremos que cuente 20 ms.
 		// Fosc= 40 MHz (vease Inic_oscilator()) de modo que
 		// Fcy = 20 MHz (cada instruccion dos ciclos de reloj)
 		// Por tanto, Tcy= 50 ns para ejecutar una instruccion
@@ -117,7 +116,7 @@ void inic_Timer6 ()
 
     TMR6 = 0 ; 	// Inicializar el registro de cuenta
     PR6 =  21875-1;	// Periodo del temporizador
-		// Queremos que cuente 2 ms.
+		// Queremos que cuente 70 ms.
 		// Fosc= 40 MHz (vease Inic_oscilator()) de modo que
 		// Fcy = 20 MHz (cada instruccion dos ciclos de reloj)
 		// Por tanto, Tcy= 50 ns para ejecutar una instruccion
@@ -271,6 +270,8 @@ void cronometro(unsigned int *mili,unsigned int *deci,unsigned int *seg,unsigned
 //Interrupciones
 //////////////////
 void _ISR_NO_PSV _T1Interrupt(){
+    
+    //A través de la interrupción del T1 moveremos el duty3 de una manera progresiva hasta llegar al objetivo
     if(flag_control==1 && pos_segura ==0){
         if(duty3>objetivo){
             duty3-=10;
@@ -284,7 +285,7 @@ void _ISR_NO_PSV _T1Interrupt(){
     IFS0bits.T1IF=0;
 }
 void _ISR_NO_PSV _T2Interrupt(){     
-    switch(estadoPWM){
+    switch(estadoPWM){              //Dependiendo del estado del PWM iremos cambiando el ulso de cada servo
         case 0:
             LATDbits.LATD0 = 1;
             PR2 = duty0;
@@ -330,11 +331,12 @@ void _ISR_NO_PSV _T2Interrupt(){
     IFS0bits.T2IF = 0;      
 }
 void _ISR_NO_PSV _T3Interrupt(){
-    comienzo_muestreo();
+    comienzo_muestreo();            //Empezamos con un muestreo del sensor de distancia
     IFS0bits.T3IF = 0;
 }
 void _ISR_NO_PSV _T4Interrupt(){
     
+    //Con el T4 llevaremos a cada servo a su posición segura
     switch (estado_posicion_segura){
         case 0:
             if(duty0>POS_SEG_0+10){

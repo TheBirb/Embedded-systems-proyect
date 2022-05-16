@@ -1,8 +1,8 @@
 /*
  * File:   main_Proy.c
- * Author: jonmorinigo
+ * Author: Iker Fernandez y Jon Moriñigo
  *
- * Created on April 28, 2022, 9:52 AM
+ * Created on April 28, 2022
  */
 
 #include "p24HJ256GP610A.h"
@@ -23,21 +23,23 @@
 int main(void) {
     
     
-    unsigned int ms,ds,s,min;
-    unsigned char dir[2];
+    unsigned int ms,ds,s,min;       //Variables del cronometro
+    unsigned char dir[2];           //Array donde se guardará la dirección del sensor
+    
+    //Inicializaciones
     inic_oscilator();
     inic_UART2();
     InitI2C_1();
     inic_Timer7();
     inic_Timer3();
     Init_LCD();
-    
     inic_pulsadores();
     inic_Timer5();
     inic_CN();
     inic_crono(&ms,&ds,&s,&min);
     inic_ADC1();
     
+    //Imprimimos 0 en pantalla en el timer
     unsigned char zeros[2];
     conversion_tiempo(zeros,0);
     LCD_Pantalla[1][8]=zeros[0];
@@ -45,6 +47,8 @@ int main(void) {
     LCD_Pantalla[1][11]=zeros[0];
     LCD_Pantalla[1][12]=zeros[0];
     LCD_Pantalla[1][14]=zeros[0];
+    
+    //Inicializaciones
     U2TXREG=0;
     comienzo_muestreo();
     inic_PWM_servos();
@@ -52,8 +56,26 @@ int main(void) {
     inic_Timer1();
     inic_medicion_dis(0xE6);
     inic_Timer6();
+    
+    //Programa principal
     while(1){
-        cronometro(&ms,&ds,&s,&min);
+        cronometro(&ms,&ds,&s,&min);        //Ejecutamos la funcion cronometro cada veulta
+        
+        //Cuando se activa el flag se reinicia el cronometro
+        if(flag_reini_crono==1){
+            LCD_Pantalla[1][8]=zeros[0];
+            LCD_Pantalla[1][9]=zeros[0];
+            LCD_Pantalla[1][11]=zeros[0];
+            LCD_Pantalla[1][12]=zeros[0];
+            LCD_Pantalla[1][14]=zeros[0];
+            reinic_crono(&ms,&ds,&s,&min);  //Reinicializamos las variables del cronometro
+            Nop();
+            Nop();
+            T7CONbits.TON = 1;              
+            flag_reini_crono=0;
+        }
+        
+        //Si han recogido 8 muestras de cada señal analogica se calcula la media y se imprime por pantalla
         if(flag_media==1){
             m_poten=calcular_media(muestras_poten);
             m_temp=calcular_media(muestras_temp);
@@ -70,6 +92,8 @@ int main(void) {
             imprimir_decimal(&LCD_Pantalla[7][12], m_joy_z, 4);
             imprimir_decimal(&LCD_Pantalla[8][12], m_mini_joy_x, 4);
             imprimir_decimal(&LCD_Pantalla[9][12], m_mini_joy_y, 4);
+            
+            //Si el control es mediante las entradas analógicas y no esta activada la posición segura se calcula la posición de cada servo (actualizando el duty)
             if(flag_control==1 && pos_segura == 0){
                 if(m_joy_x<430){
                     if(duty0>1500){
@@ -131,6 +155,8 @@ int main(void) {
             flag_media=0;
             
         }
+        
+        //Si se activa este flag se calcula la distancia del sensor
         if(ultraSonicFlag==1){
             leer_medicion(0xE6,dir);
             distancia=calcular_distancia(dir);
@@ -140,11 +166,14 @@ int main(void) {
             ultraSonicFlag=0;
         }
         
+        //Se imprimer los valores de cada servomotor por pantalla
         imprimir_decimal(&LCD_Pantalla[11][12],duty0,4);
         imprimir_decimal(&LCD_Pantalla[12][12],duty1,4);
         imprimir_decimal(&LCD_Pantalla[13][12],duty2,4);
         imprimir_decimal(&LCD_Pantalla[14][12],duty3,4);
         imprimir_decimal(&LCD_Pantalla[15][12],duty4,4);
+        
+        //Si se activa fin programa se acaba el bucle
         if(fin_programa)break;
     }
     return 0;

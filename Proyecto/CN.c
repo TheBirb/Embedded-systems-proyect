@@ -25,12 +25,12 @@ void inic_CN(){
 //==============================
 void _ISR_NO_PSV _CNInterrupt()
 {   
-    if (!PORTDbits.RD6){ //S3
+    if (!PORTDbits.RD6){                //S3 hace scroll hacia abajo en la pantalla LCD
 		if(scroll!=16){
             scroll+=2;
         }  
 	}
-    if (!PORTDbits.RD7){ //S6
+    if (!PORTDbits.RD7){                //S6 hace scroll hacia arriba en la pantalla LCD
         if(scroll!=0){
             scroll-=2;
         }
@@ -38,7 +38,7 @@ void _ISR_NO_PSV _CNInterrupt()
     if(!PORTAbits.RA7){
         flag_control=!flag_control;     //Pulsador S5 cambia el control del servo mediante el teclado o el potenciometro 
     }
-    if(!PORTBbits.RB3){
+    if(!PORTBbits.RB3){                 //El pin RB3 será el pulsador que active la posición segura
         inic_Timer4();
         pos_segura=1;
     }
